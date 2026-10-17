@@ -3,45 +3,11 @@ local Providers=require "groundWorks/EarthworkProviders"
 local PrecipitationCleaning=require "groundWorks/PrecipitationCleaning"
 local HeavyObjectIntegration=require "groundWorks/HeavyObjectIntegration"
 
-local KIND_PROVIDERS={
-    excavator="CATConstruction.excavator.v1",
-    backhoe="CATConstruction.backhoe.v1",
-    loader="CATConstruction.loader.v1",
-    skid="CATConstruction.skid.v1",
-    roller="CATConstruction.roller.v1",
-    mixer="CATConstruction.mixer.v1",
-    dump="CATConstruction.dump.v1",
-    crane="CATConstruction.crane.v1",
-}
-
-local function registerMachine(id,capabilities,maxWork,maxSoil)
-    if Providers.get(id)then return Providers.get(id)end
-    return Providers.register{
-        id=id,kind="machine",requiredModId="CATConstruction",
-        capabilities=capabilities,maxWorkPerOperation=maxWork,maxSoilPerOperation=maxSoil,
-    }
-end
-
-registerMachine("CATConstruction.excavator.v1",{excavate=true,fill=true,transferSoil=true,deposit=true},24,24)
-registerMachine("CATConstruction.backhoe.v1",{excavate=true,fill=true,transferSoil=true,deposit=true},12,12)
-registerMachine("CATConstruction.loader.v1",{excavate=true,fill=true,transferSoil=true,deposit=true},12,16)
-registerMachine("CATConstruction.skid.v1",{excavate=true,fill=true,transferSoil=true,deposit=true},12,8)
-registerMachine("CATConstruction.roller.v1",{fill=true},12,8)
-registerMachine("CATConstruction.mixer.v1",{fill=true,deposit=true},18,18)
-registerMachine("CATConstruction.dump.v1",{transferSoil=true,deposit=true},20,40)
-registerMachine("CATConstruction.crane.v1",{deposit=true,transferSoil=true},12,12)
-
-local Integration={CONSUMER_API=2,KIND_PROVIDERS=KIND_PROVIDERS}
-
-function Integration.providerIdForKind(kind)
-    return KIND_PROVIDERS[kind]
-end
-
-function Integration.providerIdForVehicle(definition)
-    if type(definition)=="string"then return KIND_PROVIDERS[definition]end
-    if type(definition)~="table"then return nil end
-    return KIND_PROVIDERS[definition.kind]or definition.groundWorksProviderId
-end
+-- No bundled vehicle adapters. Keep old query entry points inert for callers;
+-- generic providers require their own explicit server-side registration.
+local Integration={CONSUMER_API=3,KIND_PROVIDERS={}}
+function Integration.providerIdForKind()return nil end
+function Integration.providerIdForVehicle()return nil end
 
 local function loadOptional(modId,path)
     if type(getActivatedMods)~="function"then return nil end

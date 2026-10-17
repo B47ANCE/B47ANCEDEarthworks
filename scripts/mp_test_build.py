@@ -1,7 +1,7 @@
 """Prepare/verify a deterministic dedicated-MP diagnostic kit; never deploy or run PZ.
 
-Only Earthworks is packaged. External dependency code/assets are content-locked,
-not copied. Successful packaging never means MP authority or runtime acceptance.
+Only standalone Earthworks is packaged. No external runtime dependency is
+required. Successful packaging never means native MP acceptance.
 """
 import argparse
 import hashlib
@@ -16,7 +16,6 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 MOD = "B47ANCEDEarthworks"
 WORKSHOP_ID = "3788591561"
-DEPENDENCIES = ("B47ANCEDKnowledgeAndWisdom", "CATConstruction")
 TEXT = {".lua", ".txt", ".json", ".info", ".md", ".xml"}
 FORBIDDEN = {".jar", ".java", ".class", ".dll", ".so", ".dylib", ".exe", ".zip", ".log", ".py", ".ps1", ".bat", ".cmd"}
 
@@ -84,7 +83,7 @@ def snapshot(project, mod_id):
     files = source_files(source)
     info = metadata(files)
     if info.get("id") != mod_id:
-        raise ValueError("Wrong dependency Mod ID: " + mod_id)
+        raise ValueError("Wrong source Mod ID: " + mod_id)
     version = (project / "VERSION").read_text(encoding="utf-8-sig").strip() if (project / "VERSION").is_file() else None
     if version is not None and version != info.get("modversion"):
         raise ValueError("Canonical/metadata version mismatch: " + mod_id)
@@ -97,15 +96,6 @@ def snapshot(project, mod_id):
         "source_commit": git(project, "rev-parse", "HEAD"),
         "git_clean": git(project, "status", "--porcelain=v1") == "" if git(project, "rev-parse", "--show-toplevel") else None,
     }
-    if mod_id == "B47ANCEDKnowledgeAndWisdom":
-        guard = "42/media/lua/shared/B47ANCEDKnowledgeAndWisdom/AuthorityGuard.lua"
-        value = files.get(guard, b"")
-        record["mp_authority"] = {
-            "status": "BLOCKED" if b"MULTIPLAYER_STORAGE_UNAVAILABLE" in value else "UNKNOWN",
-            "evidence_path": guard,
-            "evidence_sha256": digest(value),
-            "reason": "Dedicated character knowledge is fail-closed; no build tool can grant an MP PASS.",
-        }
     return record, files
 
 
@@ -113,37 +103,17 @@ def load_lock(path):
     value = json.loads(path.read_text(encoding="utf-8"))
     if value.get("schema") != 1 or value.get("target") != "dedicated-multiplayer":
         raise ValueError("Unsupported test lock/target")
-    if set(value.get("dependencies", {})) != set(DEPENDENCIES):
-        raise ValueError("Test lock must identify both matching dependencies")
+    if value.get("dependencies") != {}:
+        raise ValueError("Standalone test lock must not include external dependencies")
     return value
 
 
-def blockers(lock):
-    result = []
-    for mod_id, record in sorted(lock["dependencies"].items()):
-        if not record.get("canonical_version") or not record.get("source_commit") or record.get("git_clean") is not True:
-            result.append(mod_id + ": canonical Git/version provenance is unresolved")
-        if mod_id == "B47ANCEDKnowledgeAndWisdom" and record.get("mp_authority", {}).get("status") != "PASS":
-            result.append(mod_id + ": dedicated knowledge authority/storage is blocked or unverified")
-    return result
-
-
-def verify_sources(lock, knowledge, cat):
+def verify_sources(lock):
     actual, files = snapshot(ROOT, MOD)
     if actual["metadata_version"] != lock["earthworks_version"]:
         raise ValueError("Earthworks version differs from test lock")
-    required = set(metadata(files).get("require", "").split(","))
-    if required != set(DEPENDENCIES):
-        raise ValueError("Earthworks dependency IDs differ from test lock")
-    for mod_id, path in zip(DEPENDENCIES, (knowledge, cat)):
-        current, _ = snapshot(path, mod_id)
-        expected = lock["dependencies"][mod_id]
-        if any(current[key] != expected[key] for key in ("mod_id", "metadata_version", "source_digest", "file_count")):
-            raise ValueError("Dependency source changed since pinning: " + mod_id)
-        if mod_id == "B47ANCEDKnowledgeAndWisdom" and current["mp_authority"] != expected.get("mp_authority"):
-            raise ValueError("Knowledge authority evidence differs from inspected source")
-        if expected.get("source_commit") and current.get("source_commit") and current["source_commit"] != expected["source_commit"]:
-            raise ValueError("Dependency Git revision changed since pinning: " + mod_id)
+    if set(filter(None, metadata(files).get("require", "").split(","))):
+        raise ValueError("Standalone Earthworks must not require external mods")
     return actual, files
 
 
@@ -203,8 +173,6 @@ def write_once(path, data):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", choices=("lock", "build", "preflight"))
-    parser.add_argument("--knowledge-root", type=Path, required=True)
-    parser.add_argument("--cat-root", type=Path, required=True)
     parser.add_argument("--lock", type=Path, default=ROOT / "docs/MP_TEST_DEPENDENCIES.json")
     parser.add_argument("--output", type=Path, default=ROOT / "dist/mp-tests")
     parser.add_argument("--archive", type=Path)
@@ -212,25 +180,24 @@ def main():
     if args.command == "lock":
         if args.lock.exists():
             raise ValueError("Existing reviewed lock is preserved; choose a new lock path for review")
-        records = {mod_id: snapshot(path, mod_id)[0] for mod_id, path in zip(DEPENDENCIES, (args.knowledge_root, args.cat_root))}
+        records = {}
         value = {"schema": 1, "target": "dedicated-multiplayer", "earthworks_version": (ROOT / "VERSION").read_text().strip(), "dependencies": records, "runtime_status": "NOT_TESTED", "g7": "BLOCKED / NOT_TESTED", "g8": "BLOCKED"}
         args.lock.parent.mkdir(parents=True, exist_ok=True)
         args.lock.write_bytes(canonical(value))
-        print(json.dumps({"lock": str(args.lock), "readiness": "DIAGNOSTIC_ONLY", "blockers": blockers(value)}, indent=2))
+        print(json.dumps({"lock": str(args.lock), "readiness": "NATIVE_NOT_TESTED", "blockers": []}, indent=2))
         return 0
     lock = load_lock(args.lock)
     for script in ("check_versions.py", "check_lua_only.py", "validate_source.py"):
         subprocess.run([sys.executable, str(ROOT / "scripts" / script)], cwd=ROOT, check=True)
-    source, files = verify_sources(lock, args.knowledge_root, args.cat_root)
+    source, files = verify_sources(lock)
     entries = package_entries(files)
-    pending = blockers(lock)
     if args.command == "preflight":
         if args.archive:
             inspect_archive(args.archive, entries)
             if digest(args.archive.read_bytes()) != digest(zip_bytes(entries)):
                 raise ValueError("Archive bytes differ from deterministic source build")
-        print(json.dumps({"integrity": "PASS", "dedicated_gameplay_readiness": "BLOCKED" if pending else "NOT_TESTED", "blockers": pending, "g7": "BLOCKED / NOT_TESTED", "g8": "BLOCKED"}, indent=2))
-        return 3 if pending else 0
+        print(json.dumps({"integrity": "PASS", "dedicated_gameplay_readiness": "READY_FOR_NATIVE_TEST", "blockers": [], "g7": "BLOCKED / NOT_TESTED", "g8": "BLOCKED"}, indent=2))
+        return 0
     data = zip_bytes(entries)
     revision = git(ROOT, "rev-parse", "HEAD")
     key = digest(canonical({"source": source["source_digest"], "lock": digest(canonical(lock)), "revision": revision,
@@ -240,11 +207,15 @@ def main():
     if not args.output.resolve().is_relative_to(ROOT.resolve() / "dist"):
         raise ValueError("Build output must stay inside this checkout's dist directory")
     output = args.output / ("earthworks-" + lock["earthworks_version"] + "-dedicated-" + key)
+    if output.exists() or output.is_symlink():
+        safe_file(ROOT / "dist", output)
+    if not output.resolve().is_relative_to(ROOT.resolve() / "dist"):
+        raise ValueError("Generated build folder escaped this checkout's dist directory")
     output.mkdir(parents=True, exist_ok=True)
     archive = output / ("Earthworks-" + lock["earthworks_version"] + "-dedicated-test.zip")
     write_once(archive, data)
     inspect_archive(archive, entries)
-    manifest = {"schema": 1, "target": "dedicated-multiplayer", "mod_id": MOD, "workshop_id": WORKSHOP_ID, "version": lock["earthworks_version"], "source_commit": revision, "source_dirty": bool(git(ROOT, "status", "--porcelain=v1")), "source_digest": source["source_digest"], "dependency_lock_sha256": digest(canonical(lock)), "archive": archive.name, "archive_sha256": digest(data), "archive_members": len(entries), "runtime_files": len(entries) - 1, "scope": "Earthworks only; dependency code/assets external", "dedicated_gameplay_readiness": "BLOCKED" if pending else "NOT_TESTED", "blockers": pending, "g7": "BLOCKED / NOT_TESTED", "g8": "BLOCKED"}
+    manifest = {"schema": 1, "target": "dedicated-multiplayer", "mod_id": MOD, "workshop_id": WORKSHOP_ID, "version": lock["earthworks_version"], "source_commit": revision, "source_dirty": bool(git(ROOT, "status", "--porcelain=v1")), "source_digest": source["source_digest"], "dependency_lock_sha256": digest(canonical(lock)), "archive": archive.name, "archive_sha256": digest(data), "archive_members": len(entries), "runtime_files": len(entries) - 1, "scope": "Standalone Earthworks; no external runtime dependencies", "dedicated_gameplay_readiness": "READY_FOR_NATIVE_TEST", "blockers": [], "g7": "BLOCKED / NOT_TESTED", "g8": "BLOCKED"}
     write_once(output / "build-manifest.json", canonical(manifest))
     write_once(output / "dependencies.lock.json", canonical(lock))
     write_once(output / "DEDICATED_TEST_CHECKLIST.md", (ROOT / "docs/DEDICATED_TESTING.md").read_bytes())

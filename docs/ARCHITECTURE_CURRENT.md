@@ -1,15 +1,11 @@
 # Current architecture and invariants
 
-Version: 0.18.0
+Version: 0.19.0
 
-The runtime is Lua-only. The public Lua global/import namespace remains `groundWorks`; the active Mod ID is `B47ANCEDEarthworks`. Rendering stays with the vanilla engine. Visibility status returns detached vanilla-only state; no custom renderer, bytecode injection or Java loader is required.
+Lua-only authoritative runtime: src/B47ANCEDEarthworks/42. Mod ID B47ANCEDEarthworks; retained groundWorks Lua/save/sandbox namespace and schemas. Vanilla owns rendering. No custom Java/JAR dependency, external required mod or bundled vehicle adapter.
 
-Shared gameplay follows existing authority boundaries: clients submit action intent; server/SP handlers validate actor/location/tools, protected/occupied geometry, operation identity and inventory before mutation. Earthwork jobs, route transactions and spoil exchanges retain replay/uncertain-outcome handling. These source boundaries are not native MP proof.
+Clients submit bounded action intent; server validates actor, reach, tools/materials, permissions, replay identity and current state before mutating/persisting shared terrain/jobs/inventory. Existing vanilla/custom synchronization paths remain; native join/reconnect, persistence, geometry and inventory behavior require dedicated evidence. No client-authority fallback is introduced.
 
-`EarthworkStoreServer` attaches the shared `groundWorks.earthworks.v1` schema-1 job store through vanilla ModData; integrity validation rejects malformed/future states. Server transmission and client snapshot handling remain existing behavior. The store is shared world state, not private character knowledge. Surface wear uses the retained `groundWorks.surface.v1` state key. Schema/storage IDs and protocol names are not branding mirrors and must not be renamed without a separately reviewed migration.
+Consumer API 3 removes automatic vehicle mappings, cargo/manual issuance and default machine validation. Old query/issuance entry points are inert; generic provider registration and explicit server validators remain. Saved machine-only project/route records are retained and never converted to manual work. No new gameplay tuning is introduced; existing server sandbox settings remain authoritative.
 
-Knowledge & Wisdom owns character knowledge, physical manual definitions and reading hooks. CAT owns machine training definitions and machinery authority; Earthworks owns earthwork/route state and once-per-vehicle manual issuance. New items use the canonical knowledge module, while saved qualification IDs and legacy book/issuance markers remain stable. The framework's deliberate dedicated knowledge guard is preserved.
-
-Meaningful shared gameplay configuration remains in server sandbox options; this onboarding adds none. Internal queue/safety bounds, protocol internals and UI geometry stay internal. Native API availability, replication, join/reconnect, save/restart behavior, geometry and rendering remain explicit runtime gates. See CONFIGURATION.md, COMPATIBILITY.md and VALIDATION_CURRENT.md.
-
-Dedicated MP is the first native test target. The new build/preflight code is development-only Python and adds no runtime gameplay/configuration/state. It content-locks external dependencies and makes immutable, timestamp-normalized ZIPs of authoritative Earthworks 42/common content. No SP pass is required.
+Dedicated is the first native target; SP is optional. Development Python builds a deterministic standalone 42/common ZIP and reports source/lock/archive fingerprints. The no-dependency lock is not a runtime PASS. G7 and stable G8 remain blocked pending actual dedicated evidence. No install, process launch, server change or upload is automated.

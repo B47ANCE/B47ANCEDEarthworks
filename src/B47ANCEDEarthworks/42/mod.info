@@ -1,10 +1,9 @@
 name=B47ANCE'd Earthworks
 id=B47ANCEDEarthworks
-require=B47ANCEDKnowledgeAndWisdom,CATConstruction
 author=B47ANCE
-description=Lua-only excavation and construction with vanilla tools. Dig outdoors or beneath existing houses; preview and frame preset trenches, moats and basements. Materials and time scale with the footprint. Intact framing prevents collapse. Generate deeper floors and walls, backfill, build routes and integrate CAT construction equipment. Requires B47ANCED Knowledge & Wisdom (B47ANCEDKnowledgeAndWisdom) and CAT Construction (CATConstruction). Uses vanilla rendering; custom cutaways and retained surface views while underground are not provided. Foreground structures, lighting and extreme depth can affect visibility. Native and multiplayer acceptance remain pending.
+description=Lua-only standalone excavation and construction with vanilla tools. Dig, frame and backfill trenches, moats and basements; move spoil and build gravel paths. Server validates shared gameplay. No external runtime mod dependency or bundled vehicle adapter. Vanilla rendering; custom cutaways and fluid simulation are unavailable. Native dedicated acceptance pending.
 poster=thumbnail.png
 icon=icon.png
 tags=Build 42;Framework;Gameplay;Building
 versionMin=42.20.4
-modversion=0.18.0
+modversion=0.19.0

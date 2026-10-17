@@ -1,5 +1,13 @@
 # B47ANCE'd Earthworks changelog
 
+## [0.19.0] - Standalone dedicated test build
+
+- Removed CAT and its CAT-only Knowledge & Wisdom hard dependency. Earthworks now loads standalone.
+- Removed bundled vehicle provider registration, cargo/manual hooks and automatic machine validation. Consumer API advances to 3; old lookup/issuance entry points are inert. Generic explicitly registered server providers remain supported.
+- Hid the unavailable machine-only concrete-road start action; retained saved route definitions, terrain state, schemas, sandbox IDs and issuance markers without conversion.
+- Replaced the external dependency lock and builder arguments with a standalone dedicated kit. Added standalone load/no-adapter regression coverage; no server launch, install or upload.
+- Dedicated is the first native target. Offline integrity can pass with no dependency blocker; native G7 and stable G8 remain BLOCKED / NOT TESTED.
+
 ## [0.18.0] - Dedicated-first reproducible diagnostics
 
 - Added deterministic Earthworks test ZIP generation, content-locked external Knowledge & Wisdom/CAT dependencies, safe repeat builds, integrity/CRC/case checks and fail-closed preflight.

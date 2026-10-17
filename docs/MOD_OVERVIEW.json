@@ -2,45 +2,39 @@
   "schema": 1,
   "id": "earth",
   "name": "B47ANCE'd Earthworks",
-  "version": "0.18.0",
-  "source_digest": "8c69037f4ea0d8a0d288063cf0cd4669e601e4e69721b445a75c86efedc5c6ee",
+  "version": "0.19.0",
+  "source_digest": "ce9050371470fa8e133a0c23152f2eee0f0238fb80fa099be72c8602b19ad0b0",
   "reviewed": true,
   "features": [
     {
       "status": "Source",
-      "text": "Lua-only excavation, backfill, spoil/material accounting, routes and surface wear; retained groundWorks API/save namespace and sandbox identifiers."
+      "text": "Standalone Lua-only excavation, spoil/backfill, gravel routes and surface wear; server validates shared work."
     },
     {
       "status": "Source",
-      "text": "Dedicated-first deterministic Earthworks-only diagnostic ZIP, external dependency content lock, integrity/preflight gates and two-client/restart checklist. No deployment or process launch."
+      "text": "Deterministic dedicated Earthworks ZIP, no-dependency lock, archive preflight and two-client/restart checklist."
+    },
+    {
+      "status": "Historical",
+      "text": "Vehicle/manual integration dropped. Old hooks are inert; saved markers and machine-only route definitions are retained without conversion."
     },
     {
       "status": "Foundation",
-      "text": "CAT adapter/manual integration uses the current knowledge Mod ID while preserving saved qualification, legacy book and issuance identities; no dependency assets bundled."
+      "text": "Generic providers require explicit server registration/validation; no built-in vehicle mapping or fallback."
     },
     {
       "status": "Blocked",
-      "text": "Dedicated CAT qualification acceptance is blocked by Knowledge & Wisdom's authoritative storage guard; it is never bypassed."
-    },
-    {
-      "status": "Blocked",
-      "text": "Pinned local CAT lacks canonical VERSION and Git provenance; unknown redistribution rights prevent bundling."
-    },
-    {
-      "status": "Blocked",
-      "text": "Experimental wheelbarrow pushing remains SP-only and unavailable in dedicated MP; no fluid simulation or custom underground cutaways."
+      "text": "Native dedicated acceptance is NOT TESTED; experimental wheelbarrow pushing remains SP-only; no fluid simulation or custom cutaways."
     }
   ],
-  "limits": "Reviewed authoritative Git source tree only; ignored historical Contents packages are not inputs. Offline/static evidence only. Native dedicated NOT TESTED; G7 and stable G8 BLOCKED. SP is optional, never a prerequisite. Source digest uses the installed overview generator's source/README/VERSION rules, distinct from normalized package/dependency digests.",
+  "limits": "Reviewed Git authoritative source only; ignored historical Contents packages are excluded. Offline/source evidence only. Native dedicated NOT_TESTED, G7 and stable G8 BLOCKED. Dedicated first; SP optional.",
   "evidence": [
     "README.md",
-    "src/B47ANCEDEarthworks/42/mod.info",
-    "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/API.lua",
-    "scripts/mp_test_build.py",
     "docs/DEDICATED_TESTING.md",
-    "docs/MP_TEST_DEPENDENCIES.json",
-    "docs/COMPATIBILITY.md",
-    "docs/VALIDATION_CURRENT.md"
+    "src/B47ANCEDEarthworks/42/mod.info",
+    "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/Integration.lua",
+    "tests/test_standalone.lua",
+    "scripts/mp_test_build.py"
   ],
   "relations": []
 }

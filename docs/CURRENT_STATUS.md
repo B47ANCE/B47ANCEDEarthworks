@@ -1,13 +1,11 @@
 # Current development status
 
-Version: 0.18.0
+Version: 0.19.0
 
-This source is Lua-only and uses the current Earthworks/Knowledge & Wisdom/CAT Mod IDs. Canonical version and public Git onboarding are configured; see VERSION_POLICY.md. The 0.16.1 import and merged 0.17.0 onboarding are historical; current 0.18.0 tooling uses a feature branch and PR. Push verification and current CI status are recorded in the PR and iteration report.
+Earthworks is standalone and Lua-only. CAT integration and its CAT-only knowledge dependency are removed. No external dependency provenance/storage gate remains for the Earthworks baseline. The independent Knowledge & Wisdom private-storage repair is separate and keeps its own scope/runtime limits.
 
-Offline evidence: source compiles under Lua 5.1; selected self-contained regressions and mocked route/excavation contracts are available. Cross-project CAT tests were run separately against local canonical sources, not bundled into this repository or CI. Current exact checks and results are in VALIDATION_CURRENT.md.
+Hand-tool excavation, spoil accounting and gravel routes remain server-authoritative. Vehicle provider mappings, machine cargo/manual hooks and default vehicle validation are retired; generic explicitly registered providers remain. Saved terrain/route/job schemas and markers are preserved. Existing machine-only projects do not become manually constructible or disappear.
 
-SP runtime: NOT TESTED for this snapshot; optional, never a dedicated prerequisite. Dedicated G7: BLOCKED / NOT TESTED. Stable G8: BLOCKED. Knowledge & Wisdom 0.16.0 blocks dedicated knowledge operations pending safe persistence; CAT delegates to that API without bypassing it. Local diagnostic packaging is authorized for this iteration; no deployment, Workshop upload or stable tag.
+Dedicated server/two clients is the first native target; SP is optional. Native G7 BLOCKED / NOT TESTED; stable G8 BLOCKED. Vanilla rendering, geometry/collision/lighting, concurrency, inventory synchronization, chunk streaming, late join, reconnect and restart require actual native evidence. Wheelbarrow pushing remains experimental/SP-only and unavailable in MP.
 
-Known limits: vanilla rendering lacks custom cutaways/retained underground surface view; fluid flow/swimming is not implemented; wheelbarrow pushing is SP-only and remains experimental. Native geometry/collision/lighting, old saves, chunk streaming, inventory replication, join/reconnect and restart acceptance remain runtime gates.
-
-Dedicated-first iteration: reproducible diagnostic kit and matching external dependency lock are implemented; SP is not a gate. Generated test packages are development diagnostics with readiness BLOCKED by dependency authority/provenance, independently of source/ZIP integrity. See DEDICATED_TESTING.md. No server was launched or modified.
+The reproducible standalone kit and no-dependency preflight support first dedicated tests; source/ZIP integrity is independent of native acceptance. No server/install/Workshop item was changed or launched. See DEDICATED_TESTING.md and VALIDATION_CURRENT.md.

@@ -1,12 +1,8 @@
-# Dedicated multiplayer test plan
+# Standalone dedicated test checklist
 
-Version: 0.18.0
+Version: 0.19.0
 
-Dedicated server plus two clients is the first native test target. SP acceptance is optional and is never a prerequisite. This plan uses disposable saves and records actual native evidence separately from offline checks. G7 is BLOCKED / NOT TESTED; stable G8 is BLOCKED.
-
-## Reproduce the diagnostic kit
-
-Use the repository's Python development environment and independently obtained, authorized dependency checkouts. `KNOWLEDGE_PROJECT` and `CAT_PROJECT` below are local project roots containing `src/<ModID>/42/mod.info`; `BUILT_ZIP` is the archive path printed by build. No absolute developer paths are stored in the portable lock.
+Dedicated server plus two clients is the first native target. SP acceptance is optional, never a prerequisite. The baseline enables only Mod ID B47ANCEDEarthworks; no CAT, Knowledge & Wisdom or other required mod. Use an explicitly authorized disposable dedicated installation/save and preserve backups. Build commands do not install, launch, change a server or upload to Workshop.
 
 ```sh
 python scripts/check_versions.py
@@ -15,49 +11,34 @@ python scripts/validate_source.py
 python scripts/validate_lua_source.py
 python tests/test_lua_only.py
 python tests/test_versioning.py
-python tests/run_route_work.py
 python tests/test_mp_test_build.py
-python scripts/mp_test_build.py build --knowledge-root KNOWLEDGE_PROJECT --cat-root CAT_PROJECT
-python scripts/mp_test_build.py preflight --knowledge-root KNOWLEDGE_PROJECT --cat-root CAT_PROJECT --archive BUILT_ZIP
+python tests/run_route_work.py
+python scripts/mp_test_build.py build
+python scripts/mp_test_build.py preflight --archive BUILT_ZIP
 ```
 
-The reviewed `MP_TEST_DEPENDENCIES.json` pins Knowledge & Wisdom 0.16.0 and the matching local CAT 0.3.0 adapter by normalized content SHA-256 and file count, plus Git revision/canonical version when available. Text CRLF is normalized to LF; binary assets remain byte exact. A matching version label alone is insufficient. Changed dependency content or available Git revision fails verification; review a new lock explicitly after any dependency repair. The `lock` subcommand refuses to overwrite an existing lock.
+BUILT_ZIP is the archive path printed by build. Source/lock/version and exact archive integrity failures are nonzero. With the retired dependency gates removed, successful preflight exits 0 and prints READY_FOR_NATIVE_TEST; this means prepared inputs, never gameplay acceptance. G7 stays BLOCKED / NOT TESTED and stable G8 BLOCKED until actual required dedicated evidence exists. Historical 0.18.0 exit-3 dependency results remain tied to that old lock/build.
 
-Build exits 0 when the diagnostic artifacts pass integrity checks. Preflight exits **3** when source/archive integrity passes but known readiness blockers remain; other failures are nonzero with `FAIL`. An exit 3 is not acceptance. A kit contains only Earthworks runtime files in B42 `mods/B47ANCEDEarthworks/42` and `common` layout, a manifest, dependency lock, this checklist and a blank results template. Sorted ZIP members, fixed timestamps, normalized text and fixed attributes make identical source produce identical ZIP bytes. Existing different output is preserved. Each manifest binds source commit/dirty state, source digest, lock digest and archive SHA-256. Record and use the final clean-commit build, not an earlier dirty diagnostic build.
+The kit contains only Earthworks in mods/B47ANCEDEarthworks/42 plus common, its clean-commit/dirty-state/source/archive manifest, empty dependency lock, this checklist and a blank results template. Text is normalized to LF; binary assets are exact. Sorted members, fixed timestamps and attributes produce identical ZIP bytes from identical source. Different existing outputs are preserved. Use the final clean committed build; verify the manifest/archive hash on the host and both clients. Do not enable a legacy duplicate Earthworks identity. Old packages/reports retain original version/hashes and are not current test evidence.
 
-Dependencies stay external. CAT source/assets have unknown redistribution rights and are never bundled. CAT lacks root VERSION and Git provenance; its metadata version is an observation, not canonical version approval. Independently verify authorized installations against the lock on the dedicated host and both clients. Keep the same enabled Mod IDs and dependency content on all three: `B47ANCEDKnowledgeAndWisdom`, `CATConstruction`, `B47ANCEDEarthworks`. Never enable a second legacy Earthworks identity alongside this one. The lock is an exact local adapter snapshot, not a claim that current Workshop subscriptions match it.
-
-The tool writes only ignored `dist` outputs. It does not install mods, edit server configuration, start processes, change upstream dependencies or upload to Workshop. Server installation/configuration/startup and Workshop distribution require their own authorization. A successful build grants none of those actions.
-
-## Blockers and test boundaries
-
-- [VERIFIED source] Knowledge & Wisdom 0.16.0 `AuthorityGuard.lua` rejects dedicated character knowledge reads/writes with `MULTIPLAYER_STORAGE_UNAVAILABLE`. Preserve this guard. Qualified CAT training/operation acceptance remains BLOCKED until a safe authoritative persistence implementation exists and new dependency pins are reviewed. An expected rejection demonstrates only fail-closed behavior; it never passes the qualified workflow.
-- [VERIFIED local inventory] CAT has no canonical VERSION or Git history in the pinned snapshot. Provenance readiness remains BLOCKED until explicitly onboarded/reviewed in its own project. Do not invent those values here or redistribute CAT assets.
-- [RUNTIME GATE] Earthworks world mutation, inventory/spoil synchronization, visibility/collision, reconnect and persistence require native dedicated evidence. Offline mocks are insufficient. If a required operation is rejected by a dependency guard, record BLOCKED and stop that scenario rather than bypassing it.
-- [VERIFIED source limit] Experimental wheelbarrow pushing is SP-only and must remain unavailable in MP. Test rejection/absence in dedicated sessions; do not enable it to expand coverage. Fluid simulation and custom cutaways are outside implemented scope.
-
-## Dedicated execution checklist
-
-Before native execution, obtain the required server/test-install authorization, preserve a backup and use disposable new/old-save fixtures. Use the results template from the kit. Record exact PZ version/build for server and each client from their own evidence; do not infer the full game version from a Steam manifest number. Record archive/lock/source digests, commit, dependency versions/digests, sandbox settings, enabled IDs and map/fixture identifier. Use anonymous client labels A/B; retain raw logs privately, with only sanitized error excerpts in public reports.
+Record exact server/client PZ versions/builds, source commit/digest, archive and lock hashes, anonymous client labels A/B, fixture/map and authoritative sandbox values. Full running version/class provenance must be verified separately from the inspected packaged artifact or Steam manifest. Keep raw logs/saves/player identifiers private; use sanitized evidence references in results.
 
 | ID | Dedicated scenario | Required observation |
 | --- | --- | --- |
-| D01 | Verify server and both client pins before startup | Exact build/dependency content and IDs match; no custom Java/JAR/bridge; clean isolated logs. Readiness blockers remain explicit. |
-| D02 | Headless dedicated load, then clients A and B join | No missing module/ID/translation errors; authoritative sandbox values reach both clients; record actual load errors. |
-| D03 | Client A performs one supported shallow hand-excavation action in a disposable cell | Server validates intent and mutates once; client B sees the same geometry, item/spoil totals and collision. If a guard rejects it, record BLOCKED. |
-| D04 | Malformed, out-of-range and replayed intent using a controlled diagnostic fixture | Server rejects invalid/duplicate work without mutation, extra spoil, item loss or a crash. Record fixture and observed server response; do not equate source inspection with runtime PASS. |
-| D05 | A and B act on the same cell concurrently | Conflict is server resolved; no duplicate excavation, spoil, wear or rewards; both converge. |
-| D06 | Spoil transfer, capacity boundary, cancellation and interrupted work | Material/inventory conservation across both clients and server; cancellation and repeated requests do not duplicate items. |
-| D07 | Attempt backfill of an occupied cell, then allowed backfill | Unsafe/occupied backfill is rejected; allowed action synchronizes geometry and material accounting exactly once. |
-| D08 | Depth/climb/visibility/collision and chunk streaming | Both clients agree after moving away/back; vanilla rendering limits are recorded; no claim of unsupported cutaways/fluid behavior. |
-| D09 | Late join, disconnect/rejoin and repeated reload | New/rejoining client receives existing state; no repeated manual issuance, lost terrain or duplicate material. |
-| D10 | Graceful dedicated save/restart and client rejoin | Persistent world/material/manual state is restored once; transient requests are not replayed. |
-| D11 | Disposable old-save books and issuance markers | Legacy manual types, qualification IDs and issuance markers retain compatibility; no duplicate books. Knowledge-dependent assertions remain BLOCKED while the guard rejects them. |
-| D12 | CAT manual knowledge access under current dependency guard | Expected fail-closed rejection is visible and safe. Record diagnostic result separately; qualified training/operation remains BLOCKED, never PASS. |
-| D13 | CAT qualification, machinery work and machinery restart/reconnect | BLOCKED by current knowledge authority/provenance. After repairs, repin dependencies and run fully with two clients and restart; do not inherit a previous lock's results. |
-| D14 | Wheelbarrow MP action boundary | Unsupported pushing stays unavailable/rejected; no client-owned shared gameplay or bypass. |
-| D15 | Authoritative sandbox settings and existing-save behavior | Record defaults and a bounded nondefault server configuration; both clients obey the same values after reconnect/restart. |
+| D01 | Verify identical clean standalone package and enabled IDs on server/A/B | Only Earthworks baseline; no missing external dependencies or custom Java/JAR/bridge. |
+| D02 | Headless load, A/B join | No import/identity/translation errors; both receive authoritative sandbox/state. |
+| D03 | One shallow hand-excavation action in a disposable cell | Server validates/mutates once; both clients agree on geometry, collision and material totals. |
+| D04 | Malformed, out-of-range, raw/replayed intents using a controlled fixture | Server rejects invalid/duplicate work without mutation, extra spoil or item loss; record the fixture/response. |
+| D05 | Concurrent A/B work on the same cell | Server resolves conflict; no duplicate excavation, spoil, wear or rewards. |
+| D06 | Spoil bag/return, capacity, interruption and cancellation | Material conservation and synchronized inventory; no duplicate requests/items. |
+| D07 | Occupied-cell backfill rejection, then allowed backfill | Unsafe action rejected; allowed geometry/material mutation occurs once. |
+| D08 | Depth/climb, visibility/collision and chunk streaming | Both clients agree after leaving/returning; vanilla rendering limits remain explicit. |
+| D09 | Late join and disconnect/rejoin | New/rejoining client receives existing terrain/jobs/routes without replaying completed work. |
+| D10 | Graceful dedicated save/restart/rejoin | Terrain, material and route state persists once; transient actions are not replayed. |
+| D11 | Disposable previous-version terrain/route fixture | Immutable keys remain readable; retired machine-only jobs are preserved and not converted or deleted. Missing fixtures mean NOT_TESTED, not PASS. |
+| D12 | Vanilla-only rendering and native UI/actions | No retired bridge requirement; headless server does not require client UI; views remain state-aware. |
+| D13 | Retired vehicle paths | No bundled machine provider or automatic validator fallback/manual issuance; old saved markers stay unchanged. Generic external providers are outside the standalone baseline. |
+| D14 | Wheelbarrow MP boundary | Unsupported experimental pushing remains unavailable/rejected; no client-owned shared gameplay. |
+| D15 | Default/nondefault server sandbox, reconnect and restart | Both clients obey the same authoritative values; existing-save behavior is recorded. |
 
-Each scenario records PASS, FAIL, BLOCKED or NOT_TESTED, steps, expected/actual result and sanitized evidence references. Any regression stops affected coverage. Never upgrade offline/static results to runtime PASS. Repeat affected cases after a source/dependency/game-build change and retain prior evidence with its original inputs.
-
-G7 can pass only after required dedicated authority, synchronization, persistence, two-client and restart coverage passes against exact pinned inputs, including repaired CAT qualification. Until then G7 stays BLOCKED / NOT TESTED and stable G8 stays BLOCKED. Workshop MP test distribution, when explicitly authorized, remains distribution evidence only and must say: **MP testing build - dedicated multiplayer NOT TESTED**.
+Every case starts NOT_TESTED. Record steps, expected/actual result and sanitized evidence for PASS/FAIL/BLOCKED/NOT_TESTED. Stop affected testing on a failure. Repeat relevant cases after source/game-build changes; never promote offline mocks or old-version results to native proof. SP evidence cannot clear dedicated G7. No stable release, install or Workshop publication is authorized by a successful kit build.

@@ -14,7 +14,7 @@ STANDALONE_TESTS = (
     "test_api.lua", "test_load.lua", "test_machine_projects.lua",
     "test_precipitation_cleaning.lua", "test_spoil_exchange.lua",
     "test_surface_presentation.lua", "test_wheelbarrow_bodies.lua",
-    "test_worn_surface.lua", "test_visibility.lua",
+    "test_worn_surface.lua", "test_visibility.lua", "test_standalone.lua",
 )
 
 

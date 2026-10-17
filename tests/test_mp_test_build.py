@@ -53,39 +53,29 @@ class DedicatedBuildTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             build.source_files(source)
 
-    def test_dependency_content_drift_is_detectable(self):
+    def test_source_content_drift_is_detectable(self):
         project = self.root / "dependency"
-        source = project / "src/CATConstruction/42"
+        source = project / "src/B47ANCEDEarthworks/42"
         source.mkdir(parents=True)
-        (source / "mod.info").write_text("id=CATConstruction\nmodversion=0.3.0\n")
-        before, _ = build.snapshot(project, "CATConstruction")
+        (source / "mod.info").write_text("id=B47ANCEDEarthworks\nmodversion=0.19.0\n")
+        before, _ = build.snapshot(project, build.MOD)
         (source / "changed.lua").write_text("return 1\n")
-        after, _ = build.snapshot(project, "CATConstruction")
+        after, _ = build.snapshot(project, build.MOD)
         self.assertNotEqual(before["source_digest"], after["source_digest"])
         self.assertIsNone(before["canonical_version"])
 
-    def test_preflight_verification_rejects_dependency_drift_and_guard_forgery(self):
-        projects = {}
-        for mod_id in (build.MOD, *build.DEPENDENCIES):
-            project = self.root / mod_id
-            source = project / "src" / mod_id / "42"
-            source.mkdir(parents=True)
-            requirements = "require=" + ",".join(build.DEPENDENCIES) + "\n" if mod_id == build.MOD else ""
-            (source / "mod.info").write_text("id=" + mod_id + "\nmodversion=1.2.3\n" + requirements)
-            projects[mod_id] = project
-        lock = {"earthworks_version": "1.2.3", "dependencies": {
-            mod_id: build.snapshot(projects[mod_id], mod_id)[0] for mod_id in build.DEPENDENCIES}}
-        knowledge, cat = (projects[mod_id] for mod_id in build.DEPENDENCIES)
-        with patch.object(build, "ROOT", projects[build.MOD]):
-            build.verify_sources(lock, knowledge, cat)
-            changed = cat / "src/CATConstruction/42/changed.lua"
-            changed.write_text("return true\n")
-            with self.assertRaisesRegex(ValueError, "Dependency source changed"):
-                build.verify_sources(lock, knowledge, cat)
-            changed.unlink()
-            lock["dependencies"][build.DEPENDENCIES[0]]["mp_authority"]["status"] = "PASS"
-            with self.assertRaisesRegex(ValueError, "authority evidence differs"):
-                build.verify_sources(lock, knowledge, cat)
+    def test_preflight_rejects_reintroduced_runtime_dependency(self):
+        project = self.root / build.MOD
+        source = project / "src" / build.MOD / "42"
+        source.mkdir(parents=True)
+        info = source / "mod.info"
+        info.write_text("id=B47ANCEDEarthworks\nmodversion=1.2.3\n")
+        lock = {"earthworks_version": "1.2.3", "dependencies": {}}
+        with patch.object(build, "ROOT", project):
+            build.verify_sources(lock)
+            info.write_text(info.read_text() + "require=UnexpectedExternalMod\n")
+            with self.assertRaisesRegex(ValueError, "must not require external"):
+                build.verify_sources(lock)
 
     def test_unsafe_archive_members_and_duplicates_are_rejected(self):
         expected = {"mods/B47ANCEDEarthworks/42/mod.info": b"id=B47ANCEDEarthworks\n"}
@@ -121,13 +111,16 @@ class DedicatedBuildTests(unittest.TestCase):
         with self.assertRaises(zipfile.BadZipFile):
             build.inspect_archive(path, expected)
 
-    def test_package_success_does_not_clear_dependency_authority_blockers(self):
-        lock = {"dependencies": {
-            "CATConstruction": {"canonical_version": None, "source_commit": None, "git_clean": None},
-            "B47ANCEDKnowledgeAndWisdom": {"canonical_version": "0.16.0", "source_commit": "fixture", "git_clean": True,
-                "mp_authority": {"status": "BLOCKED"}},
-        }}
-        self.assertEqual(len(build.blockers(lock)), 2)
+    def test_standalone_lock_rejects_external_dependencies(self):
+        import json
+        path = self.root / "lock.json"
+        lock = {"schema": 1, "target": "dedicated-multiplayer", "dependencies": {}}
+        path.write_text(json.dumps(lock))
+        self.assertEqual(build.load_lock(path)["dependencies"], {})
+        lock["dependencies"]["UnexpectedExternalMod"] = {}
+        path.write_text(json.dumps(lock))
+        with self.assertRaises(ValueError):
+            build.load_lock(path)
 
 
 if __name__ == "__main__":

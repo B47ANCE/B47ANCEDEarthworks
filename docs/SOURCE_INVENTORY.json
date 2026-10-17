@@ -1,5 +1,5 @@
 {
-  "version": "0.18.0",
+  "version": "0.19.0",
   "authoritative_runtime_roots": [
     "src/B47ANCEDEarthworks/42"
   ],
@@ -52,12 +52,12 @@
   ],
   "current_packages": [
     {
-      "role": "dedicated diagnostic test package",
+      "role": "standalone dedicated development test package",
       "generated_root": "dist/mp-tests",
       "definition": "scripts/mp_test_build.py",
       "provenance": "build-manifest.json beside each generated ZIP",
-      "contents": "Earthworks only; dependency source/assets remain external",
-      "dedicated_gameplay_readiness": "BLOCKED"
+      "contents": "Earthworks only; no required external mods",
+      "dedicated_gameplay_readiness": "READY_FOR_NATIVE_TEST"
     }
   ],
   "historical_local_only": [
@@ -78,6 +78,7 @@
     "python tests/test_versioning.py",
     "python tests/run_route_work.py",
     "python tests/test_mp_test_build.py",
-    "python scripts/mp_test_build.py preflight --knowledge-root KNOWLEDGE_PROJECT --cat-root CAT_PROJECT --archive BUILT_ZIP"
-  ]
+    "python scripts/mp_test_build.py preflight --archive BUILT_ZIP"
+  ],
+  "generated_output_classification": "Only artifacts whose manifest version matches root VERSION are current; other versioned kits retain historical identity. No cleanup is implied."
 }
