@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "id": "earth",
+  "name": "B47ANCE'd Earthworks",
+  "version": "0.18.0",
+  "source_digest": "8c69037f4ea0d8a0d288063cf0cd4669e601e4e69721b445a75c86efedc5c6ee",
+  "reviewed": true,
+  "features": [
+    {
+      "status": "Source",
+      "text": "Lua-only excavation, backfill, spoil/material accounting, routes and surface wear; retained groundWorks API/save namespace and sandbox identifiers."
+    },
+    {
+      "status": "Source",
+      "text": "Dedicated-first deterministic Earthworks-only diagnostic ZIP, external dependency content lock, integrity/preflight gates and two-client/restart checklist. No deployment or process launch."
+    },
+    {
+      "status": "Foundation",
+      "text": "CAT adapter/manual integration uses the current knowledge Mod ID while preserving saved qualification, legacy book and issuance identities; no dependency assets bundled."
+    },
+    {
+      "status": "Blocked",
+      "text": "Dedicated CAT qualification acceptance is blocked by Knowledge & Wisdom's authoritative storage guard; it is never bypassed."
+    },
+    {
+      "status": "Blocked",
+      "text": "Pinned local CAT lacks canonical VERSION and Git provenance; unknown redistribution rights prevent bundling."
+    },
+    {
+      "status": "Blocked",
+      "text": "Experimental wheelbarrow pushing remains SP-only and unavailable in dedicated MP; no fluid simulation or custom underground cutaways."
+    }
+  ],
+  "limits": "Reviewed authoritative Git source tree only; ignored historical Contents packages are not inputs. Offline/static evidence only. Native dedicated NOT TESTED; G7 and stable G8 BLOCKED. SP is optional, never a prerequisite. Source digest uses the installed overview generator's source/README/VERSION rules, distinct from normalized package/dependency digests.",
+  "evidence": [
+    "README.md",
+    "src/B47ANCEDEarthworks/42/mod.info",
+    "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/API.lua",
+    "scripts/mp_test_build.py",
+    "docs/DEDICATED_TESTING.md",
+    "docs/MP_TEST_DEPENDENCIES.json",
+    "docs/COMPATIBILITY.md",
+    "docs/VALIDATION_CURRENT.md"
+  ],
+  "relations": []
+}

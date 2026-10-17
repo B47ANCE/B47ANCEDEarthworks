@@ -40,3 +40,9 @@ node_modules/
 !/docs/imported-0.13.1/
 /docs/imported-0.13.1/*
 !/docs/imported-0.13.1/contracts.lua
+
+# Reviewed dedicated MP test contract and feature overview
+!/docs/DEDICATED_TESTING.md
+!/docs/MP_TEST_DEPENDENCIES.json
+!/docs/MP_RESULTS_TEMPLATE.json
+!/docs/MOD_OVERVIEW.json

@@ -1,5 +1,5 @@
 B47ANCE'd Earthworks - DEVELOPMENT RELEASE CANDIDATE
-Version: 0.17.0
+Version: 0.18.0
 Author: B47ANCE
 Internal Mod ID: B47ANCEDEarthworks
 

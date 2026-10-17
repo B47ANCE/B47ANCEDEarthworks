@@ -1,7 +1,5 @@
-[b]Version 0.17.0[/b]
+[b]Version 0.18.0[/b]
 
-Canonical development version for the Earthworks rename, Lua-only migration and corrected Knowledge & Wisdom/CAT dependency IDs. Saved namespaces, qualification IDs, legacy manual types and once-only issuance remain stable.
+Added a reproducible dedicated MP diagnostic kit, matching external dependency lock and dedicated/two-client test checklist. SP is not a test prerequisite. No gameplay authority guard is bypassed.
 
-Public Git history, exact version/source inventories and offline CI are configured. Uses vanilla rendering; custom cutaways and a retained underground surface view are unavailable.
-
-MP testing build - dedicated multiplayer NOT TESTED. Stable release is blocked, and Knowledge & Wisdom dedicated qualification remains unavailable. No Workshop upload was performed.
+MP testing build - dedicated multiplayer NOT TESTED. Knowledge & Wisdom authority/storage and CAT provenance remain blockers; generated diagnostics are not stable-release approval. No Workshop upload was performed.

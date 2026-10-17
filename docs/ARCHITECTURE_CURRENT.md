@@ -1,6 +1,6 @@
 # Current architecture and invariants
 
-Version: 0.17.0
+Version: 0.18.0
 
 The runtime is Lua-only. The public Lua global/import namespace remains `groundWorks`; the active Mod ID is `B47ANCEDEarthworks`. Rendering stays with the vanilla engine. Visibility status returns detached vanilla-only state; no custom renderer, bytecode injection or Java loader is required.
 
@@ -11,3 +11,5 @@ Shared gameplay follows existing authority boundaries: clients submit action int
 Knowledge & Wisdom owns character knowledge, physical manual definitions and reading hooks. CAT owns machine training definitions and machinery authority; Earthworks owns earthwork/route state and once-per-vehicle manual issuance. New items use the canonical knowledge module, while saved qualification IDs and legacy book/issuance markers remain stable. The framework's deliberate dedicated knowledge guard is preserved.
 
 Meaningful shared gameplay configuration remains in server sandbox options; this onboarding adds none. Internal queue/safety bounds, protocol internals and UI geometry stay internal. Native API availability, replication, join/reconnect, save/restart behavior, geometry and rendering remain explicit runtime gates. See CONFIGURATION.md, COMPATIBILITY.md and VALIDATION_CURRENT.md.
+
+Dedicated MP is the first native test target. The new build/preflight code is development-only Python and adds no runtime gameplay/configuration/state. It content-locks external dependencies and makes immutable, timestamp-normalized ZIPs of authoritative Earthworks 42/common content. No SP pass is required.

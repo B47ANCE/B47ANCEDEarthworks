@@ -1,4 +1,5 @@
 {
+  "version": "0.18.0",
   "authoritative_runtime_roots": [
     "src/B47ANCEDEarthworks/42"
   ],
@@ -38,14 +39,27 @@
     "docs/CONFIGURATION.md",
     "docs/COMPATIBILITY.md",
     "docs/GITHUB_ONBOARDING.md",
-    "docs/imported-0.13.1/contracts.lua"
+    "docs/imported-0.13.1/contracts.lua",
+    "docs/DEDICATED_TESTING.md",
+    "docs/MP_TEST_DEPENDENCIES.json",
+    "docs/MP_RESULTS_TEMPLATE.json",
+    "docs/MOD_OVERVIEW.json"
   ],
   "development_roots": [
     "tests",
     "scripts",
     ".github"
   ],
-  "current_packages": [],
+  "current_packages": [
+    {
+      "role": "dedicated diagnostic test package",
+      "generated_root": "dist/mp-tests",
+      "definition": "scripts/mp_test_build.py",
+      "provenance": "build-manifest.json beside each generated ZIP",
+      "contents": "Earthworks only; dependency source/assets remain external",
+      "dedicated_gameplay_readiness": "BLOCKED"
+    }
+  ],
   "historical_local_only": [
     "Contents",
     "dist",
@@ -62,6 +76,8 @@
     "python scripts/validate_lua_source.py",
     "python tests/test_lua_only.py",
     "python tests/test_versioning.py",
-    "python tests/run_route_work.py"
+    "python tests/run_route_work.py",
+    "python tests/test_mp_test_build.py",
+    "python scripts/mp_test_build.py preflight --knowledge-root KNOWLEDGE_PROJECT --cat-root CAT_PROJECT --archive BUILT_ZIP"
   ]
 }

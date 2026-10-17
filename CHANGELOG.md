@@ -1,5 +1,13 @@
 # B47ANCE'd Earthworks changelog
 
+## [0.18.0] - Dedicated-first reproducible diagnostics
+
+- Added deterministic Earthworks test ZIP generation, content-locked external Knowledge & Wisdom/CAT dependencies, safe repeat builds, integrity/CRC/case checks and fail-closed preflight.
+- Added a dedicated-server/two-client checklist and results template. SP is not a prerequisite; no gameplay authority guard or unsupported MP feature is enabled.
+- Adopted the reviewed Earthworks feature overview and synchronized 20 version mirrors. Runtime changes are version strings only; schemas/IDs and existing settings are preserved.
+- Test package contents are Earthworks only. CAT assets and knowledge source remain external; no upload/deployment/server launch occurs.
+- Known blockers remain: Knowledge & Wisdom dedicated knowledge authority/storage; CAT canonical Git/version provenance. G7 and stable G8 remain BLOCKED. See dedicated testing and current validation docs.
+
 ## [0.17.0] - Canonical development onboarding
 
 - Established root VERSION and synchronized all 16 declared mirrors, including source metadata/API, current docs, changelog, Workshop text and source provenance.

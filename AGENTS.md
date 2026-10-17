@@ -1,6 +1,6 @@
 # Earthworks project instructions
 
-Current version: 0.17.0. Canonical version is root VERSION.
+Current version: 0.18.0. Canonical version is root VERSION.
 
 Read the user's current global AGENTS.md through USERPROFILE/.codex/AGENTS.md when available. Team skills live in USERPROFILE/.agents/skills; preserve unrelated settings.
 
@@ -13,3 +13,7 @@ Read the user's current global AGENTS.md through USERPROFILE/.codex/AGENTS.md wh
 - Public repository: B47ANCE/B47ANCEDEarthworks. Use named branches and PRs before shared-main merges; do not merge without an explicit merge request. Preserve user work, inspect freshness and audit staged public files before every push.
 - Run the commands in README and docs/VALIDATION_CURRENT.md. Offline/static, native SP and dedicated evidence are separate. Dedicated G7 and stable G8 remain BLOCKED.
 - No automatic packaging, deployment, game/server launch, Workshop upload, Steam restart or artifact cleanup. Preserve originals and historical provenance.
+
+- Dedicated MP is the first native validation target from the first slice. SP acceptance is optional and is never a prerequisite for dedicated testing. Preserve historical SP-only feature limits; do not enable unsupported MP behavior.
+- Dedicated test kit: scripts/mp_test_build.py, docs/MP_TEST_DEPENDENCIES.json and docs/DEDICATED_TESTING.md. Build success is separate from readiness; preserve the dependency guard and provenance blockers.
+- Maintain reviewed docs/MOD_OVERVIEW.json in the same branch with the current version/source digest. Dependency assets remain external; no CAT redistribution, server launch/change or upload is authorized by a kit build.
