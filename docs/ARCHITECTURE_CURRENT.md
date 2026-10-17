@@ -1,6 +1,6 @@
 # Current architecture and invariants
 
-Version: 0.16.1
+Version: 0.17.0
 
 The runtime is Lua-only. The public Lua global/import namespace remains `groundWorks`; the active Mod ID is `B47ANCEDEarthworks`. Rendering stays with the vanilla engine. Visibility status returns detached vanilla-only state; no custom renderer, bytecode injection or Java loader is required.
 

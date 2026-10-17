@@ -1,6 +1,6 @@
 # Current validation record
 
-Version: 0.16.1
+Version: 0.17.0
 
 Environment: offline Windows host using Python and Lupa 2.6 / Lua 5.1; the route harness uses Lupa's default host runtime. GitHub Actions repeats portable offline checks on Linux/Python 3.12. Neither environment is PZ runtime or a Linux dedicated-server test.
 
@@ -24,3 +24,5 @@ Compatibility context: the separate local CAT adapter compiled 19 source Lua fil
 [RUNTIME GATE] SP: NOT TESTED for this snapshot. Dedicated G7: BLOCKED / NOT TESTED. Stable G8: BLOCKED. Test disposable old/new saves, Java-free loading, visibility/depth, material accounting, excavation/route geometry, saved manual qualification and non-reissuance, two clients, join/rejoin, synchronization, persistence and dedicated restart. Knowledge & Wisdom's blocked MP authority/storage must be resolved before claiming dedicated manual qualification works.
 
 `python scripts/check_versions.py --release` is expected to BLOCK G8; absence of current packages/runtime evidence must not be reported as a source-test failure or a release PASS. No game/server, local install or Workshop item is touched by these commands.
+
+The initial 0.16.1 Git import passed GitHub's Linux offline workflow at commit `dceb259d9d40ad9deaf9ef0f716c7e10c562ecdc` ([baseline run](https://github.com/B47ANCE/B47ANCEDEarthworks/actions/runs/38994885200)). That is historical baseline CI, not evidence for this version's final commit; current branch/PR checks must pass independently.

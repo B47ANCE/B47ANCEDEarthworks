@@ -1,5 +1,5 @@
 [h1]B47ANCE'd Earthworks[/h1]
-[b]Mod Version: 0.16.1[/b] - development source; native acceptance pending
+[b]Mod Version: 0.17.0[/b] - development source; native acceptance pending
 Lua-only runtime. Requires B47ANCED Knowledge & Wisdom (B47ANCEDKnowledgeAndWisdom) and CAT Construction (CATConstruction). Uses vanilla rendering without custom cutaways or a retained surface view while underground.
 Dig, deepen and frame trenches, moats and basements using native tools and CAT machines. Concrete roads require CAT; gravel paths remain hand-buildable.
 CAT manuals grant machine operation, repair and maintenance knowledge through B47ANCED Knowledge & Wisdom. They appear in general loot and once in matching CAT vehicle gloveboxes.

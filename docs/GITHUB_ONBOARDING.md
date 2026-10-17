@@ -13,3 +13,5 @@ Freshness before onboarding: no Git repository existed, so HEAD/upstream/default
 The first GitHub upload backs up Earthworks only. The separately modified CAT workspace is not made part of this repository. Knowledge & Wisdom was consumed read-only at its existing version. GitHub public visibility and branch SHA must be verified after push; until then no backup success is claimed.
 
 CI has contents:read permissions, pinned upstream-verified action SHAs, disabled persisted checkout credentials and no Steam/SFTP/game access. It performs no deployment, publication, package creation, cleanup or server connection. A workflow does not itself configure branch protection. Main merges require the project's explicit merge authorization and applicable green checks.
+
+Initial main source backup was verified: local and remote SHA `dceb259d9d40ad9deaf9ef0f716c7e10c562ecdc` matched. Public visibility was verified through the GitHub API. The feature branch tracks verified origin/main until its first explicit feature-branch push establishes its own upstream.

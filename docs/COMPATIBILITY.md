@@ -1,6 +1,6 @@
 # Framework compatibility
 
-Version: 0.16.1
+Version: 0.17.0
 
 Earthworks requires `B47ANCEDKnowledgeAndWisdom` and `CATConstruction`. Its Mod ID is `B47ANCEDEarthworks`; the retained Lua namespace is `groundWorks`. CAT's matching local adapter must detect the new activation IDs and import the canonical knowledge API. CAT is a separate editable project, not included here; installing an older CAT package may still leave stale activation/import checks.
 

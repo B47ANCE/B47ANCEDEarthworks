@@ -1,5 +1,5 @@
 groundWorks=rawget(_G,"groundWorks") or {}
-groundWorks.VERSION="0.16.1"
+groundWorks.VERSION="0.17.0"
 -- Preserve the status API for consumers; rendering is owned by the vanilla engine.
 -- Return a fresh snapshot so callers cannot enable a renderer through this API.
 function groundWorks.getVisibilityStatus()
