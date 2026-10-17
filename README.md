@@ -1,6 +1,6 @@
 # B47ANCE'd Earthworks
 
-Version: `0.16.1` - development source, not a stable release.
+Version: `0.17.0` - development source, not a stable release.
 
 Lua-only excavation, construction and surface wear for Project Zomboid Build 42. Dig and frame trenches, moats and basements; deepen, climb, move spoil and backfill; build routes and integrate CAT machinery. Water remains stored visual fill, not fluid flow. Wheelbarrow pushing is experimental and SP-only.
 
@@ -10,7 +10,7 @@ Lua-only excavation, construction and surface wear for Project Zomboid Build 42.
 - Retained API/save/sandbox namespace: `groundWorks`. Enable one package identity only.
 - Rendering: vanilla; custom cutaways and retained underground surface views are unavailable.
 
-[Public repository](https://github.com/B47ANCE/B47ANCEDEarthworks). The observed 0.16.1 source is the initial Git import; approved 0.17.0 onboarding belongs on a named branch and PR. No stable tags are created from unverified work.
+[Public repository](https://github.com/B47ANCE/B47ANCEDEarthworks). The observed 0.16.1 source is preserved as the initial main baseline; current 0.17.0 development is on `chore/repository-onboarding-0.17.0` with a PR before shared-main merge. No stable tags are created from unverified work.
 
 ## Current limitations
 

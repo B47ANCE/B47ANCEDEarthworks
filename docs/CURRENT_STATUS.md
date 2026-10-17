@@ -1,8 +1,8 @@
 # Current development status
 
-Version: 0.16.1
+Version: 0.17.0
 
-This source is Lua-only and uses the current Earthworks/Knowledge & Wisdom/CAT Mod IDs. Canonical version and public Git onboarding are now configured; see VERSION_POLICY.md. This 0.16.1 import preserves the observed pre-onboarding metadata; approved development target is 0.17.0 on a named branch/PR.
+This source is Lua-only and uses the current Earthworks/Knowledge & Wisdom/CAT Mod IDs. Canonical version and public Git onboarding are now configured; see VERSION_POLICY.md. The observed 0.16.1 import is historical on main; approved canonical development version 0.17.0 uses the onboarding feature branch and PR workflow; push verification and current CI status are recorded in the PR and iteration report.
 
 Offline evidence: source compiles under Lua 5.1; selected self-contained regressions and mocked route/excavation contracts are available. Cross-project CAT tests were run separately against local canonical sources, not bundled into this repository or CI. Current exact checks and results are in VALIDATION_CURRENT.md.
 

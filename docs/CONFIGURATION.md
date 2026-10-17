@@ -1,6 +1,6 @@
 # Sandbox configuration
 
-Version: 0.16.1
+Version: 0.17.0
 
 The server's sandbox configuration is authoritative for shared gameplay. Option identifiers/defaults are preserved across the rename; names/tooltips live in the source English Sandbox.json. Only English fallback is supplied; folder counts do not prove localization or native loading.
 
