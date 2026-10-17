@@ -1,0 +1,13 @@
+VERSION = 1,
+
+option groundWorks.EnableAnimalTraffic { type = boolean, default = true, page = groundWorks, translation = groundWorks_EnableAnimalTraffic, }
+
+option groundWorks.EnablePlayerFootTraffic { type = boolean, default = true, page = groundWorks, translation = groundWorks_EnablePlayerFootTraffic, }
+option groundWorks.EnableVehicleTraffic { type = boolean, default = true, page = groundWorks, translation = groundWorks_EnableVehicleTraffic, }
+option groundWorks.EnableUnoccupiedVehicleTraffic { type = boolean, default = true, page = groundWorks, translation = groundWorks_EnableUnoccupiedVehicleTraffic, }
+option groundWorks.WearRecoveryPerDay { type = double, min = 0.0, max = 10.0, default = 0.05, page = groundWorks, translation = groundWorks_WearRecoveryPerDay, }
+option groundWorks.EnableLiveOpenPit { type = boolean, default = false, page = groundWorks, translation = groundWorks_EnableLiveOpenPit, }
+option groundWorks.EnableHandExcavation { type = boolean, default = true, page = groundWorks, translation = groundWorks_EnableHandExcavation, }
+option groundWorks.EnableCollapse { type = boolean, default = true, page = groundWorks, translation = groundWorks_EnableCollapse, }
+option groundWorks.CollapseKills { type = boolean, default = true, page = groundWorks, translation = groundWorks_CollapseKills, }
+option groundWorks.CollapseChancePerHour { type = double, min = 0.0, max = 1.0, default = 0.01, page = groundWorks, translation = groundWorks_CollapseChancePerHour, }

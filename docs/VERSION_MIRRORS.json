@@ -1,0 +1,66 @@
+[
+  {
+    "path": "src/B47ANCEDEarthworks/42/mod.info",
+    "pattern": "^modversion=(.+)$"
+  },
+  {
+    "path": "src/B47ANCEDEarthworks/info.txt",
+    "pattern": "^Version: (.+)$"
+  },
+  {
+    "path": "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/API.lua",
+    "pattern": "groundWorks\\.VERSION=\"([^\"]+)\""
+  },
+  {
+    "path": "README.md",
+    "pattern": "^Version: `([^`]+)`"
+  },
+  {
+    "path": "AGENTS.md",
+    "pattern": "^Current version: ([^ ]+)\\."
+  },
+  {
+    "path": "CHANGELOG.md",
+    "pattern": "^## \\[([^\\]]+)\\]"
+  },
+  {
+    "path": "WORKSHOP_DESCRIPTION.txt",
+    "pattern": "^\\[b\\]Mod Version: (.+?)\\[/b\\]"
+  },
+  {
+    "path": "WORKSHOP_CHANGE_NOTE.txt",
+    "pattern": "^\\[b\\]Version (.+?)\\[/b\\]"
+  },
+  {
+    "path": "workshop.txt",
+    "pattern": "^description=\\[b\\]Mod Version: (.+?)\\[/b\\]"
+  },
+  {
+    "path": "workshop.txt",
+    "pattern": "^changenote=\\[b\\]Version (.+?)\\[/b\\]"
+  },
+  {
+    "path": "docs/CURRENT_STATUS.md",
+    "pattern": "^Version: (.+)$"
+  },
+  {
+    "path": "docs/VALIDATION_CURRENT.md",
+    "pattern": "^Version: (.+)$"
+  },
+  {
+    "path": "docs/ARCHITECTURE_CURRENT.md",
+    "pattern": "^Version: (.+)$"
+  },
+  {
+    "path": "docs/CONFIGURATION.md",
+    "pattern": "^Version: (.+)$"
+  },
+  {
+    "path": "docs/COMPATIBILITY.md",
+    "pattern": "^Version: (.+)$"
+  },
+  {
+    "path": "docs/SOURCE_PROVENANCE_CURRENT.json",
+    "pattern": "\"version\": \"([^\"]+)\""
+  }
+]

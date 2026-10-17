@@ -1,0 +1,5 @@
+[b]Version 0.16.1[/b]
+
+Initial Git source import and repository governance baseline. Lua-only Earthworks source uses the current Earthworks, Knowledge & Wisdom and CAT Mod IDs. Saved qualifications, old manual types and issuance markers are preserved.
+
+MP testing build - dedicated multiplayer NOT TESTED. Stable release remains blocked; Knowledge & Wisdom dedicated qualification is not yet available. No Workshop upload was performed.

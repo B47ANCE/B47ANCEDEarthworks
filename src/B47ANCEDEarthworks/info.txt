@@ -1,0 +1,6 @@
+B47ANCE'd Earthworks - DEVELOPMENT RELEASE CANDIDATE
+Version: 0.16.1
+Author: B47ANCE
+Internal Mod ID: B47ANCEDEarthworks
+
+Lua-only runtime. Requires B47ANCED Knowledge & Wisdom (B47ANCEDKnowledgeAndWisdom) and CAT Construction (CATConstruction). CAT supplies the machines; Knowledge & Wisdom supplies manual items and knowledge. Uses vanilla rendering, without custom cutaways or a retained surface view while underground. In-game acceptance remains pending; dedicated knowledge operations remain blocked by the framework authority guard.

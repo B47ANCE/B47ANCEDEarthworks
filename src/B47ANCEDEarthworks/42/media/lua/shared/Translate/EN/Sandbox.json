@@ -1,0 +1,23 @@
+{
+  "Sandbox_groundWorks": "B47ANCE'd Earthworks",
+  "Sandbox_groundWorks_EnableCollapse": "Unsecured excavations can collapse",
+  "Sandbox_groundWorks_EnableCollapse_tooltip": "Loaded unsecured trenches, moats and basements can collapse. Complete B47ANCE'd Earthworks framing prevents collapse while the frames remain intact.",
+  "Sandbox_groundWorks_CollapseKills": "Collapse is fatal to occupants",
+  "Sandbox_groundWorks_CollapseKills_tooltip": "A survivor inside a collapsing column is killed. Disable to evacuate survivors to a clear surface landing instead. Collapse never deletes stored items or bodies.",
+  "Sandbox_groundWorks_CollapseChancePerHour": "Collapse chance per hour per depth level",
+  "Sandbox_groundWorks_CollapseChancePerHour_tooltip": "Chance for one unsecured loaded column over an in-game hour, multiplied by its depth. Default 0.01 (one percent). Zero disables random collapse.",
+  "Sandbox_groundWorks_EnableAnimalTraffic": "Enable animal path wear",
+  "Sandbox_groundWorks_EnableAnimalTraffic_tooltip": "Records animal wear on observed adjacent square transitions. Initial samples, animals in vehicles and travel discontinuities do not create wear.",
+  "Sandbox_groundWorks_EnablePlayerFootTraffic": "Enable player-created footpath wear",
+  "Sandbox_groundWorks_EnablePlayerFootTraffic_tooltip": "Records one foot-traffic contribution when a player enters a different ground square.",
+  "Sandbox_groundWorks_EnableVehicleTraffic": "Enable vehicle road wear",
+  "Sandbox_groundWorks_EnableVehicleTraffic_tooltip": "Records wear along supported installed-wheel trajectories. Multiple occupants do not multiply wear.",
+  "Sandbox_groundWorks_EnableUnoccupiedVehicleTraffic": "Include unoccupied vehicle wear",
+  "Sandbox_groundWorks_EnableUnoccupiedVehicleTraffic_tooltip": "Samples a bounded batch of loaded unoccupied vehicles for supported wheel travel. Requires vehicle road wear to be enabled. Stationary vehicles do not add wear.",
+  "Sandbox_groundWorks_WearRecoveryPerDay": "Daily path-wear recovery",
+  "Sandbox_groundWorks_WearRecoveryPerDay_tooltip": "Amount of semantic wear recovered per unused in-game day when a worn square is next visited. Zero disables recovery.",
+  "Sandbox_groundWorks_EnableLiveOpenPit": "Enable instant live volume commands",
+  "Sandbox_groundWorks_EnableLiveOpenPit_tooltip": "Allows debug, admin, or this sandbox flag to punch an instant cavity. Hand-tool digging does not need this option.",
+  "Sandbox_groundWorks_EnableHandExcavation": "Enable shovel and pickaxe construction",
+  "Sandbox_groundWorks_EnableHandExcavation_tooltip": "Lets players dig trenches, moats, graves, pits, basements, burn pits and foundations with a shovel or pickaxe, then dig deeper, fill, pour water or concrete, and light burn pits. Default on."
+}

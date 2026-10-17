@@ -1,0 +1,67 @@
+{
+  "authoritative_runtime_roots": [
+    "src/B47ANCEDEarthworks/42"
+  ],
+  "authoring_files": [
+    "src/B47ANCEDEarthworks/info.txt",
+    "src/B47ANCEDEarthworks/thumbnail.png",
+    "preview.png"
+  ],
+  "mod_ids": [
+    "B47ANCEDEarthworks"
+  ],
+  "workshop_ids": [
+    "3788591561"
+  ],
+  "public_root_files": [
+    ".gitignore",
+    ".gitattributes",
+    "AGENTS.md",
+    "VERSION",
+    "README.md",
+    "CHANGELOG.md",
+    "WORKSHOP_ID.txt",
+    "WORKSHOP_DESCRIPTION.txt",
+    "WORKSHOP_CHANGE_NOTE.txt",
+    "workshop.txt",
+    "preview.png",
+    "requirements-dev.txt"
+  ],
+  "public_documents": [
+    "docs/VERSION_POLICY.md",
+    "docs/VERSION_MIRRORS.json",
+    "docs/SOURCE_INVENTORY.json",
+    "docs/SOURCE_PROVENANCE_CURRENT.json",
+    "docs/CURRENT_STATUS.md",
+    "docs/VALIDATION_CURRENT.md",
+    "docs/ARCHITECTURE_CURRENT.md",
+    "docs/CONFIGURATION.md",
+    "docs/COMPATIBILITY.md",
+    "docs/GITHUB_ONBOARDING.md",
+    "docs/imported-0.13.1/contracts.lua"
+  ],
+  "development_roots": [
+    "tests",
+    "scripts",
+    ".github"
+  ],
+  "current_packages": [],
+  "historical_local_only": [
+    "Contents",
+    "dist",
+    "docs/local-history",
+    "docs/historical",
+    "SHA256SUMS.txt",
+    ".steamcmd-last-upload.sha256"
+  ],
+  "validation_commands": [
+    "python scripts/check_versions.py",
+    "python scripts/check_public_tree.py --staged",
+    "python scripts/check_lua_only.py",
+    "python scripts/validate_source.py",
+    "python scripts/validate_lua_source.py",
+    "python tests/test_lua_only.py",
+    "python tests/test_versioning.py",
+    "python tests/run_route_work.py"
+  ]
+}

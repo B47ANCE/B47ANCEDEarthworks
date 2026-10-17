@@ -1,0 +1,19 @@
+{
+  "ContextMenu_groundWorks_ClimbIntoPit": "Climb into volume",
+  "ContextMenu_groundWorks_ClimbOutOfPit": "Climb out of volume",
+  "ContextMenu_groundWorks_HandExcavate": "B47ANCE'd Earthworks",
+  "ContextMenu_groundWorks_DigTrench": "Dig trench",
+  "ContextMenu_groundWorks_DigMoat": "Dig moat",
+  "ContextMenu_groundWorks_DigGrave": "Dig grave",
+  "ContextMenu_groundWorks_DigOpenPit": "Dig open pit",
+  "ContextMenu_groundWorks_DigBasement": "Dig basement",
+  "ContextMenu_groundWorks_DigBurnPit": "Dig burn pit",
+  "ContextMenu_groundWorks_DigFoundation": "Dig foundation",
+  "ContextMenu_groundWorks_FillDirt": "Fill with dirt",
+  "ContextMenu_groundWorks_PourWater": "Pour water",
+  "ContextMenu_groundWorks_PourConcrete": "Pour concrete",
+  "ContextMenu_groundWorks_AddFuel": "Add fuel",
+  "ContextMenu_groundWorks_LightFire": "Light fire",
+  "ContextMenu_groundWorks_DigDeeper": "Dig deeper",
+  "ContextMenu_groundWorks_Construction": "B47ANCE'd Earthworks Construction"
+}
