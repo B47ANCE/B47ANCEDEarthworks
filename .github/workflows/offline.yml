@@ -23,4 +23,5 @@ jobs:
       - run: python scripts/validate_lua_source.py
       - run: python tests/test_lua_only.py
       - run: python tests/test_versioning.py
+      - run: python tests/test_mp_test_build.py
       - run: python tests/run_route_work.py

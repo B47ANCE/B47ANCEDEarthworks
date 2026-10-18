@@ -1,7 +1,5 @@
-[b]Version 0.17.0[/b]
+[b]Version 0.19.1[/b]
 
-Canonical development version for the Earthworks rename, Lua-only migration and corrected Knowledge & Wisdom/CAT dependency IDs. Saved namespaces, qualification IDs, legacy manual types and once-only issuance remain stable.
+Updated the mod icon to the approved transparent wheelbarrow and the thumbnail/preview to the original Earthworks title artwork. Gameplay and saved data are unchanged.
 
-Public Git history, exact version/source inventories and offline CI are configured. Uses vanilla rendering; custom cutaways and a retained underground surface view are unavailable.
-
-MP testing build - dedicated multiplayer NOT TESTED. Stable release is blocked, and Knowledge & Wisdom dedicated qualification remains unavailable. No Workshop upload was performed.
+MP testing build - dedicated multiplayer NOT TESTED. G7 and stable G8 BLOCKED. Source artwork update only; no package, install, launch or Workshop upload.

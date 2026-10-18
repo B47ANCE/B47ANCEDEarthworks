@@ -1,8 +1,6 @@
 [h1]B47ANCE'd Earthworks[/h1]
-[b]Mod Version: 0.17.0[/b] - development source; native acceptance pending
-Lua-only runtime. Requires B47ANCED Knowledge & Wisdom (B47ANCEDKnowledgeAndWisdom) and CAT Construction (CATConstruction). Uses vanilla rendering without custom cutaways or a retained surface view while underground.
-Dig, deepen and frame trenches, moats and basements using native tools and CAT machines. Concrete roads require CAT; gravel paths remain hand-buildable.
-CAT manuals grant machine operation, repair and maintenance knowledge through B47ANCED Knowledge & Wisdom. They appear in general loot and once in matching CAT vehicle gloveboxes.
-Collect excavation spoil in sacks, transport it by hand, CAT cargo or experimental wheelbarrow, and return it for backfill. Includes owned worn-ground overlays and optional weatherWorks rain cleaning and itjustWorks heavy-object transactions.
-The wheelbarrow is an experimental native pushable with placeholder art and single-player pushing only. Save/reload, collision, visual and multiplayer acceptance remain user-run release gates. This is not B47ANCE'd Earthworks 1.0.
-Load dragged human and zombie bodies into the wheelbarrow and unload them back to native dragging.
+[b]Mod Version: 0.19.1[/b] - development MP test build
+Standalone Lua-only excavation and construction with vanilla tools. No required external mods or bundled vehicle adapters.
+Dig, frame, deepen, climb and backfill trenches, moats and basements. Move spoil in native sacks/containers and build gravel paths. Server validates shared gameplay.
+Uses vanilla rendering; fluid simulation, custom cutaways and retained underground surface views are unavailable. Experimental wheelbarrow pushing remains SP-only and unavailable in dedicated MP.
+MP testing build - dedicated multiplayer NOT TESTED. Dedicated server/two clients is the first native target; SP is optional. G7 and stable-release G8 remain BLOCKED pending runtime evidence.

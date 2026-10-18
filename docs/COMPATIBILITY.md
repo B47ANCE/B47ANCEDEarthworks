@@ -1,13 +1,11 @@
-# Framework compatibility
+# Current compatibility contract
 
-Version: 0.17.0
+Version: 0.19.1
 
-Earthworks requires `B47ANCEDKnowledgeAndWisdom` and `CATConstruction`. Its Mod ID is `B47ANCEDEarthworks`; the retained Lua namespace is `groundWorks`. CAT's matching local adapter must detect the new activation IDs and import the canonical knowledge API. CAT is a separate editable project, not included here; installing an older CAT package may still leave stale activation/import checks.
+Earthworks Mod ID is B47ANCEDEarthworks, with no required external Mod IDs. The retained import/global/save/sandbox namespace is groundWorks. CAT integration and its CAT-only Knowledge & Wisdom dependency are removed at the user's request. No external source/assets are bundled or redistributed; CAT repository onboarding is canceled.
 
-CAT optionally orders after Knowledge & Wisdom, without a reverse load-after-Earthworks edge because Earthworks requires CAT. Manual registration/qualification, presets, machinery and recovery use existing boot/deferred paths. CAT remains standalone when either optional framework is absent.
+Consumer API advances from 2 to 3: built-in vehicle kind/provider mappings return nil; old VehicleManuals.ensure returns false without reading cargo or changing issuance markers. No automatic machine provider or validator fallback remains. A generic trusted provider must explicitly register its authority validator. Machine spoil exchange is rejected. Existing machine-only road metadata remains readable but is not silently converted to a manual project; no unavailable manual concrete-road start is shown.
 
-New manuals use `B47ANCEDKnowledgeAndWisdom.CC_Manual_*`. Saved `experienceWorks.CAT.*` qualifications and `CAT-OPERATOR-*` document IDs stay stable. The framework's private compatibility index resolves old saved books; Earthworks recognizes both old/new glovebox books and issuance values, preventing replacement after removal. No second knowledge ledger or migration bypass is added.
+Keep existing saved terrain, job/route schema IDs and historical issuance/qualification data untouched. Dropping an integration does not erase saved markers or manufacture replacement items. Knowledge & Wisdom retains old saved item declarations/aliases inertly in its independent project; standalone Earthworks does not load it or depend on its private backend.
 
-Knowledge & Wisdom 0.16.0 deliberately blocks dedicated character knowledge reads/writes. With both dependencies and training enabled, dedicated CAT qualification remains blocked. The integration delegates to that guard, preserving server authority. These IDs being correct does not establish MP readiness.
-
-Other optional consumers still depend on their declared precipitation/heavy-object contracts; this onboarding does not repair unrelated renamed optional mods. No third-party source/assets are imported. CAT author/license/redistribution rights remain UNKNOWN; the user authorized local adapter edits only. No CAT files or assets are redistributed here. Future external-mod PRs require clean-room provenance and reviewer signoff.
+The minimal dedicated baseline enables only Earthworks. Optional weatherWorks precipitation and itjustWorks heavy-object contracts remain as previously implemented, outside this baseline's compatibility proof. Their presence is not inferred from directories or Workshop subscriptions. Dedicated G7 and stable G8 remain blocked until actual runtime coverage; no SP prerequisite.

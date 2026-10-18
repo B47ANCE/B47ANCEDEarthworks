@@ -16,7 +16,7 @@ def check(condition, message):
 def main():
     metadata = dict(line.split("=", 1) for line in (SOURCE / "mod.info").read_text().splitlines() if "=" in line)
     check(metadata["id"] == "B47ANCEDEarthworks" and metadata["name"] == "B47ANCE'd Earthworks", "Mod identity changed")
-    check(set(metadata["require"].split(",")) == {"B47ANCEDKnowledgeAndWisdom", "CATConstruction"}, "Incorrect required Mod IDs")
+    check(not metadata.get("require", "").strip(), "Standalone mod must not declare required mods")
     check((ROOT / "WORKSHOP_ID.txt").read_text().strip() == "3788591561", "Workshop item changed")
     files = [path for path in (ROOT / "src").rglob("*") if path.is_file()]
     names = [path.relative_to(ROOT / "src").as_posix() for path in files]
@@ -31,6 +31,7 @@ def main():
         check(all(isinstance(value, str) and value for value in values.values()), "Empty translation: " + str(path))
     for path in lua.rglob("*.lua"):
         text = path.read_text(encoding="utf-8-sig")
+        check(not re.search(r"CATConstruction|CC_Manual_|CAT-OPERATOR-", text), "Retired integration in active Lua: " + str(path))
         for module in re.findall(r"\brequire\s*\(?\s*['\"](groundWorks/[^'\"]+)['\"]", text):
             check(module in modules, "Missing or wrong-case import: " + module)
         for key in re.findall(r"getText\s*\(\s*['\"]((?:ContextMenu|IGUI|Sandbox)_groundWorks_[^'\"]+)['\"]", text):

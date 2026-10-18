@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "target": "dedicated-multiplayer",
+  "earthworks_version": "0.19.1",
+  "dependencies": {},
+  "runtime_status": "NOT_TESTED",
+  "g7": "BLOCKED / NOT_TESTED",
+  "g8": "BLOCKED"
+}

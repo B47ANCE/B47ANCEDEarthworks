@@ -6,17 +6,13 @@ local function publish(container,item,added)
     end
 end
 -- One excavation volume equals one Dirtbag use. Bags remain native inventory
--- objects, so hand carrying, loose piles, containers and CAT cargo share mass.
+-- objects, so hand carrying, loose piles and containers share mass.
 function Exchange.perform(actor,square,direction,operationId,container,machine,useWheelbarrow)
     if isClient()then return false,'non-authority'end
     if type(operationId)~='string'or #operationId<1 or #operationId>160 then return false,'Invalid operation.'end
     if not actor or actor:isDead()or not square then return false,'Active worker and loaded ground required.'end
     if machine then
-        local CC=rawget(_G,'CATConstruction')
-        local vehicle=actor:getVehicle()
-        if not CC or not CC.Server or not CC.Server.validate(actor,vehicle,CC.Actions[direction=='bag'and'bagSpoil'or'returnSpoil'],square)then
-            return false,'Machine cannot reach this excavation.'
-        end
+        return false,'Machine spoil exchange is unavailable.'
     else
         if actor:getVehicle()or not API.HandTools.squareReachable(actor,square)or not API.HandTools.findTool(actor)then
             return false,'Stand beside the excavation with a digging tool.'

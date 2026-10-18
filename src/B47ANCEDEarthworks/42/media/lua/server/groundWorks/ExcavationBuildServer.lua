@@ -18,16 +18,7 @@ local function validMachine(player,providerId,spec)
         local ok,allowed,why=pcall(validator,player,vehicle,spec)
         return ok and allowed==true,why or'The machine rejected this footprint.'
     end
-    local cat=rawget(_G,'CATConstruction')
-    local definition=cat and cat.getVehicleDefinition and cat.getVehicleDefinition(vehicle)
-    if not definition or API.providerIdForVehicle(definition)~=providerId then return false,'The operated vehicle does not match the excavation provider.'end
-    local reach=tonumber(definition.reach)or 0
-    local plan=Build.plan(spec)
-    for _,target in ipairs(plan and plan.cells or{})do
-        local dx,dy=vehicle:getX()-target.x-0.5,vehicle:getY()-target.y-0.5
-        if dx*dx+dy*dy>reach*reach then return false,'Part of the footprint is beyond this machine\'s reach.'end
-    end
-    return true
+    return false,'No authoritative machine validator is registered.'
 end
 local function validId(id)return type(id)=='string'and#id>0 and#id<=80 and not id:find('[%c]')end
 local function store()return API.EarthworkPersistence.getStore()end

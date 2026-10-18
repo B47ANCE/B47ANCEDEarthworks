@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "earth",
+  "name": "B47ANCE'd Earthworks",
+  "version": "0.19.1",
+  "source_digest": "5bdef79d6c26810ec757ad5ba5e038d9879800fbec495cc884470da503d1b656",
+  "reviewed": true,
+  "features": [
+    {
+      "status": "Source",
+      "text": "Standalone Lua-only excavation, spoil/backfill, gravel routes and surface wear; server validates shared work."
+    },
+    {
+      "status": "Source",
+      "text": "Deterministic dedicated Earthworks ZIP, no-dependency lock, archive preflight and two-client/restart checklist."
+    },
+    {
+      "status": "Historical",
+      "text": "Vehicle/manual integration dropped. Old hooks are inert; saved markers and machine-only route definitions are retained without conversion."
+    },
+    {
+      "status": "Foundation",
+      "text": "Generic providers require explicit server registration/validation; no built-in vehicle mapping or fallback."
+    },
+    {
+      "status": "Blocked",
+      "text": "Native dedicated acceptance is NOT TESTED; experimental wheelbarrow pushing remains SP-only; no fluid simulation or custom cutaways."
+    }
+  ],
+  "limits": "Reviewed Git authoritative source only; ignored historical Contents packages are excluded. Offline/source evidence only. Native dedicated NOT_TESTED, G7 and stable G8 BLOCKED. Dedicated first; SP optional.",
+  "evidence": [
+    "README.md",
+    "docs/DEDICATED_TESTING.md",
+    "src/B47ANCEDEarthworks/42/mod.info",
+    "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/Integration.lua",
+    "tests/test_standalone.lua",
+    "scripts/mp_test_build.py"
+  ],
+  "relations": []
+}

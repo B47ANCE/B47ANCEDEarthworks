@@ -1,26 +1,17 @@
 # B47ANCE'd Earthworks
 
-Version: `0.17.0` - development source, not a stable release.
+Version: `0.19.1` - development MP test source, not a stable release.
 
-Lua-only excavation, construction and surface wear for Project Zomboid Build 42. Dig and frame trenches, moats and basements; deepen, climb, move spoil and backfill; build routes and integrate CAT machinery. Water remains stored visual fill, not fluid flow. Wheelbarrow pushing is experimental and SP-only.
+Standalone Lua-only excavation, construction and surface wear for Project Zomboid Build 42. Dig/frame/deepen/climb/backfill trenches, moats and basements, move spoil and build gravel paths. Rendering is vanilla; fluid simulation, custom cutaways and retained underground surface views are unavailable. Experimental wheelbarrow pushing remains SP-only and unavailable in dedicated MP.
 
 - Mod ID: `B47ANCEDEarthworks`; Workshop item: `3788591561`.
-- Required Mod IDs: `B47ANCEDKnowledgeAndWisdom` and `CATConstruction`.
-- Canonical version: root [VERSION](VERSION). Active runtime: `src/B47ANCEDEarthworks/42`.
-- Retained API/save/sandbox namespace: `groundWorks`. Enable one package identity only.
-- Rendering: vanilla; custom cutaways and retained underground surface views are unavailable.
+- No required external mods. Enable only Earthworks for the first dedicated baseline.
+- Authoritative runtime: `src/B47ANCEDEarthworks/42`; root VERSION is canonical.
+- Retained API/save/sandbox namespace: `groundWorks`; Consumer API: 3.
 
-[Public repository](https://github.com/B47ANCE/B47ANCEDEarthworks). The observed 0.16.1 source is preserved as the initial main baseline; current 0.17.0 development is on `chore/repository-onboarding-0.17.0` with a PR before shared-main merge. No stable tags are created from unverified work.
+CAT integrations and the CAT-only Knowledge & Wisdom requirement are removed. No vehicle providers, machine cargo bridge or manual issuance is bundled. Existing terrain/job/route schemas and saved markers are preserved. Generic provider APIs still require explicit server-side registration and validation; there is no automatic vehicle fallback. The machine-only concrete-road definition is retained for saved metadata, with no manual start option or automatic conversion.
 
-## Current limitations
-
-SP runtime is NOT TESTED for this source snapshot. Dedicated G7 is BLOCKED / NOT TESTED; stable G8 is BLOCKED. Knowledge & Wisdom 0.16.0 deliberately blocks dedicated knowledge reads/writes; CAT qualification preserves that guard. A public push or green CI is offline evidence, not gameplay certification.
-
-CAT's matching local adapter has been updated to the new Mod IDs/imports, but its source is a separate project and is not bundled in this repository. Installed/subscribed CAT may still need that update. See [compatibility](docs/COMPATIBILITY.md) and [current status](docs/CURRENT_STATUS.md).
-
-## Development checks
-
-Python with `pip install -r requirements-dev.txt` supplies Lupa 2.6 and Lua 5.1. From the repository root:
+Dedicated server plus two clients is the first native target; SP acceptance is optional, never a prerequisite. Native dedicated NOT TESTED; G7 and stable G8 BLOCKED. A prepared ZIP or green CI is offline evidence only. The separate Knowledge & Wisdom storage repair is not required to load standalone Earthworks.
 
 ```sh
 python scripts/check_versions.py
@@ -29,12 +20,17 @@ python scripts/validate_source.py
 python scripts/validate_lua_source.py
 python tests/test_lua_only.py
 python tests/test_versioning.py
+python tests/test_mp_test_build.py
 python tests/run_route_work.py
 python scripts/check_public_tree.py --staged
+python scripts/mp_test_build.py build
+python scripts/mp_test_build.py preflight --archive BUILT_ZIP
 ```
 
-The self-contained suite compiles source Lua, runs nine selected Lua regressions, validates source structure/translations and executes mocked excavation/route contracts. It does not run every inherited fixture or test real PZ APIs. Cross-project CAT tests are separate. [Validation and runtime gates](docs/VALIDATION_CURRENT.md) lists the exact scope.
+Python with `pip install -r requirements-dev.txt` supplies Lupa 2.6 / Lua 5.1. The source suite compiles runtime Lua, runs ten selected self-contained Lua regressions and mocked excavation/route contracts. It is not the full historical suite or native API proof. [Exact validation/evidence](docs/VALIDATION_CURRENT.md).
 
-[Version policy](docs/VERSION_POLICY.md), [source inventory](docs/SOURCE_INVENTORY.json), [architecture](docs/ARCHITECTURE_CURRENT.md), [sandbox configuration](docs/CONFIGURATION.md), and [onboarding provenance](docs/GITHUB_ONBOARDING.md).
+The [dedicated test kit](docs/DEDICATED_TESTING.md) contains a deterministic Earthworks-only ZIP, no-dependency lock, commit/source/archive manifest, checklist and blank results template. Build outputs stay in ignored dist; different existing output is preserved. Successful preflight exits 0 with READY_FOR_NATIVE_TEST, while native G7/G8 remain blocked. The tool does not install mods, edit server configuration, launch processes or upload anything.
 
-Historical packages, reports, Java evidence, developer links and diagnostics remain local and are excluded from the public tree. No current package exists; use authoritative source for a separately authorized future build. CI never deploys, uploads or connects to a game/server.
+[Public repository](https://github.com/B47ANCE/B47ANCEDEarthworks), [version policy](docs/VERSION_POLICY.md), [source inventory](docs/SOURCE_INVENTORY.json), [architecture](docs/ARCHITECTURE_CURRENT.md), [sandbox configuration](docs/CONFIGURATION.md), [compatibility](docs/COMPATIBILITY.md), [reviewed overview](docs/MOD_OVERVIEW.json). Historical packages/reports, retired Java evidence and previous dependency locks retain their original versions/hashes outside current inputs. Optional weather/heavy-object consumers retain their existing declared contracts and are not part of the minimal baseline.
+
+Artwork: the approved transparent wheelbarrow is `src/B47ANCEDEarthworks/42/icon.png`. The original title artwork is used unchanged for both thumbnail.png slots and Workshop `preview.png` (all 1254 x 1254). These source assets do not update an installed mod or Workshop item until a separately authorized deployment/upload. Native menu display is NOT TESTED.

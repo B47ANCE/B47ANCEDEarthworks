@@ -6,7 +6,6 @@ local EPSILON=0.00001
 local function finite(value)value=tonumber(value);return value and value==value and value~=math.huge and value~=-math.huge and value or nil end
 Work.OPTIONS={
     {op='routeStart',route='groundWorks.gravelPath',label='Start gravel path'},
-    {op='routeStart',route='groundWorks.concreteRoad',label='Start concrete road'},
     {op='routeSupply',label='Supply route material'},
     {op='routeWork',label='Build route'},
 }
@@ -78,7 +77,7 @@ function Work.plan(player,square,op,routeId)
     local tool=Hand.findTool(player)
     if op=='routeStart'then
         local route=Routes.get(routeId)
-        if route and route.requiresMachine then return false,'This route requires a CAT vehicle.'end
+        if route and route.requiresMachine then return false,'This route requires construction machinery.'end
         if not route or not tool then return false,'A shovel or digging tool and route design are required.'end
         if API.Projects.snapshot(square)then return false,'This tile already has a project.'end
         local store=API.EarthworkPersistence and API.EarthworkPersistence.getStore()
@@ -92,7 +91,7 @@ function Work.plan(player,square,op,routeId)
     local snapshot,err=Routes.snapshot(square)
     if not snapshot then return false,err end
     local definition=Routes.get(snapshot.route.routeId)
-    if definition and definition.requiresMachine then return false,'This route requires a CAT vehicle.'end
+    if definition and definition.requiresMachine then return false,'This route requires construction machinery.'end
     if snapshot.project.materialRecovery or snapshot.project.worldRecovery then return false,'This route requires inspection before more work.'end
     if snapshot.project.status~='active'and snapshot.project.status~='ready'then return false,'This route is not available for construction.'end
     if op=='routeSupply'then

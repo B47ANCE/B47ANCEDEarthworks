@@ -1,5 +1,27 @@
 # B47ANCE'd Earthworks changelog
 
+## [0.19.1] - Approved Earthworks artwork
+
+- Use the approved transparent dirt-filled wheelbarrow as the mod icon. Use the user's original Earthworks title artwork as the runtime poster, authoring thumbnail and Workshop preview.
+- Preserve exact supplied PNG bytes (1254 x 1254); the icon retains true alpha and contains no text or background fill. Existing metadata already selects icon.png and thumbnail.png.
+- Update version mirrors and source/artwork provenance. Gameplay, authority, saved data and dependencies are unchanged. Offline checks only; native icon display NOT TESTED, G7 and stable G8 remain BLOCKED. No package, deployment or upload.
+
+## [0.19.0] - Standalone dedicated test build
+
+- Removed CAT and its CAT-only Knowledge & Wisdom hard dependency. Earthworks now loads standalone.
+- Removed bundled vehicle provider registration, cargo/manual hooks and automatic machine validation. Consumer API advances to 3; old lookup/issuance entry points are inert. Generic explicitly registered server providers remain supported.
+- Hid the unavailable machine-only concrete-road start action; retained saved route definitions, terrain state, schemas, sandbox IDs and issuance markers without conversion.
+- Replaced the external dependency lock and builder arguments with a standalone dedicated kit. Added standalone load/no-adapter regression coverage; no server launch, install or upload.
+- Dedicated is the first native target. Offline integrity can pass with no dependency blocker; native G7 and stable G8 remain BLOCKED / NOT TESTED.
+
+## [0.18.0] - Dedicated-first reproducible diagnostics
+
+- Added deterministic Earthworks test ZIP generation, content-locked external Knowledge & Wisdom/CAT dependencies, safe repeat builds, integrity/CRC/case checks and fail-closed preflight.
+- Added a dedicated-server/two-client checklist and results template. SP is not a prerequisite; no gameplay authority guard or unsupported MP feature is enabled.
+- Adopted the reviewed Earthworks feature overview and synchronized 20 version mirrors. Runtime changes are version strings only; schemas/IDs and existing settings are preserved.
+- Test package contents are Earthworks only. CAT assets and knowledge source remain external; no upload/deployment/server launch occurs.
+- Known blockers remain: Knowledge & Wisdom dedicated knowledge authority/storage; CAT canonical Git/version provenance. G7 and stable G8 remain BLOCKED. See dedicated testing and current validation docs.
+
 ## [0.17.0] - Canonical development onboarding
 
 - Established root VERSION and synchronized all 16 declared mirrors, including source metadata/API, current docs, changelog, Workshop text and source provenance.

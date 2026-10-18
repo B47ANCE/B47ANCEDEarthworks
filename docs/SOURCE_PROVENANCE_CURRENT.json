@@ -1,14 +1,14 @@
 {
-  "version": "0.17.0",
+  "version": "0.19.1",
   "mod_id": "B47ANCEDEarthworks",
   "workshop_id": "3788591561",
   "normalization": "canonical LF for text; exact PNG bytes",
   "files_sha256": {
-    "src/B47ANCEDEarthworks/info.txt": "88cf31a110fe2d625032d70b4267842708d7036756b34d490a8ffabe731f9de4",
-    "src/B47ANCEDEarthworks/thumbnail.png": "f2e53bb00fd1c692ce6c82b612670f42b844c0a95cb9ff7cae01585e7dc74eaa",
-    "src/B47ANCEDEarthworks/42/icon.png": "4562f6681beb0005353aaecc6a9d85edc461bdb2fe523ad3fca05d0452f9a8c2",
-    "src/B47ANCEDEarthworks/42/mod.info": "8dc8381a9a4ca8fa5f4891819a1795317d8ac3bc663ba5118981c8c191f2abfc",
-    "src/B47ANCEDEarthworks/42/thumbnail.png": "f2e53bb00fd1c692ce6c82b612670f42b844c0a95cb9ff7cae01585e7dc74eaa",
+    "src/B47ANCEDEarthworks/info.txt": "07667015e566430b08727abca500ed7cd4d6022fedd0ad9a0d8f273e5c7c70bd",
+    "src/B47ANCEDEarthworks/thumbnail.png": "f256ae54a3167a310ae8ce288cd0da13b0177117c03a91a93cf3977cc602d2d4",
+    "src/B47ANCEDEarthworks/42/icon.png": "951494267279b6fc40eda0b2a207c8b7d150cbea412958198d81dd5bd1d84779",
+    "src/B47ANCEDEarthworks/42/mod.info": "032b159fcb475d51bdc0a294f47d527055a3d5778b5f9482d1f518515d348391",
+    "src/B47ANCEDEarthworks/42/thumbnail.png": "f256ae54a3167a310ae8ce288cd0da13b0177117c03a91a93cf3977cc602d2d4",
     "src/B47ANCEDEarthworks/42/media/sandbox-options.txt": "952fdaec5510285c0ec6c31d515d028b0177b38d7da801902fb41f40cc79d913",
     "src/B47ANCEDEarthworks/42/media/lua/client/groundWorks/ClientLoad.lua": "6ebd234e81a855b7a9b40ba8ce297c1db6158576d32a91eaa96f1189d5b0a327",
     "src/B47ANCEDEarthworks/42/media/lua/client/groundWorks/EarthworkDiagnosticsClient.lua": "71842a356729640cd3374dafd44263f94a9eb337ac108ea0ef72d869c6447953",
@@ -28,7 +28,7 @@
     "src/B47ANCEDEarthworks/42/media/lua/server/groundWorks/CavityEngine.lua": "53039ecda347686d611736ba33967a47893d1fc1232aff4772655b22b4ad4cd5",
     "src/B47ANCEDEarthworks/42/media/lua/server/groundWorks/EarthworkDiagnosticsServer.lua": "72d33c351a19d9131e851f251ec5e1c89d643e572df6b6aef254bd18d98c1e1c",
     "src/B47ANCEDEarthworks/42/media/lua/server/groundWorks/EarthworkStoreServer.lua": "0d34b43f9728a8f9297c007e6691ac2d524a94254b1546e454e03ee4cce1f757",
-    "src/B47ANCEDEarthworks/42/media/lua/server/groundWorks/ExcavationBuildServer.lua": "c643bd0527b7ddd59ea2b7f992a12068ab64dd656a615a1230c8d71f1bd7a7bf",
+    "src/B47ANCEDEarthworks/42/media/lua/server/groundWorks/ExcavationBuildServer.lua": "ca188b28e552907f4c6951a5f2ee3370a0539928f1e792026c6fadc67e9922f5",
     "src/B47ANCEDEarthworks/42/media/lua/server/groundWorks/ExcavationExperimentServer.lua": "6a4eb5afa529510bf59a4d7a3c41d525bcf72aeabf255aa6d41b869ebd7d86ea",
     "src/B47ANCEDEarthworks/42/media/lua/server/groundWorks/HandToolsServer.lua": "9b87d1952d0a59d9d322fcbbbf1e93245f2bb2abc2d5caf36e5ce603e34d3145",
     "src/B47ANCEDEarthworks/42/media/lua/server/groundWorks/MachineGeometry.lua": "07258e0bead17f45d1ede0e9372a2f1c7b6a31d8d294d27a6fefc493f986efe4",
@@ -36,15 +36,15 @@
     "src/B47ANCEDEarthworks/42/media/lua/server/groundWorks/RainCleaningServer.lua": "7ac01b6f6edb8a7a77fe863330da97fd207a975946939258d846c0d605b3a028",
     "src/B47ANCEDEarthworks/42/media/lua/server/groundWorks/RouteWorkServer.lua": "180818daa64c066fab105da572dcb755a98e1495d0e7cc6c8f13338bfee05f13",
     "src/B47ANCEDEarthworks/42/media/lua/server/groundWorks/ServerLoad.lua": "fa49188f36267cfde94079f981d474209d40e11db546bb0959631106efab13fd",
-    "src/B47ANCEDEarthworks/42/media/lua/server/groundWorks/SpoilExchange.lua": "97e7cc435108a75b75611e1b754131bf5ec595afe610af8632ce555b067bc9d1",
+    "src/B47ANCEDEarthworks/42/media/lua/server/groundWorks/SpoilExchange.lua": "300c90b956a490a55f92480d9364dac8279001003a7661213994efb8e960c919",
     "src/B47ANCEDEarthworks/42/media/lua/server/groundWorks/SurfaceSync.lua": "1c0065778f154ccad733200f348280674d84fa8b3c5e780502791a329f20ec67",
     "src/B47ANCEDEarthworks/42/media/lua/server/groundWorks/TrafficObserver.lua": "13f4b8847866d6ebec730b627747475fbec37e666d50205781b567ee3655b0a4",
     "src/B47ANCEDEarthworks/42/media/lua/server/groundWorks/UnoccupiedVehicleObserver.lua": "f1977c4b7ac7dd20ce5e7b381aa86aa8cdd45ce237d496b7e1e2ecdd22029c99",
-    "src/B47ANCEDEarthworks/42/media/lua/server/groundWorks/VehicleManuals.lua": "eee7695d4ac161a2fce8d25e31fd7e260a6e87b83499b4f203a741211bf64829",
+    "src/B47ANCEDEarthworks/42/media/lua/server/groundWorks/VehicleManuals.lua": "c515095ccf83a8504c35492ad26c3d42b214438542d7644267ca537e78207a21",
     "src/B47ANCEDEarthworks/42/media/lua/server/groundWorks/WheelbarrowServer.lua": "5f2a00881faf5ee5ca80aad596f66ef5eafc584a93f5b419dc7491931c4cd607",
     "src/B47ANCEDEarthworks/42/media/lua/server/groundWorks/WheelbarrowTransactions.lua": "088a773f4eab377be10ac1778901b441bf1cd466e04d19643f41416a471483bf",
     "src/B47ANCEDEarthworks/42/media/lua/server/groundWorks/WornSurface.lua": "167fa002909047baf89b5ca8b05e559ad1024bf4bdb7848a519d1ac9e34e5c9b",
-    "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/API.lua": "3bc2e712026ceb8e762bc9b90799b253975cce1d60c0c2dbe7196d1cc1babe58",
+    "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/API.lua": "8c1d905e947ebbc5830b855f967c60c3bc9e9235eebb3fad071ae4f187b1b0c4",
     "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/Cavity.lua": "ed790788449b8955cf99fcbc6b2962db8be9108422c6b6db192a6aa7f8326d10",
     "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/CavityTerrain.lua": "bf32c156073ba1a98d7da7020b59acb364b8332d5ce31bf81f4c2595b50e5bb6",
     "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/ConstructedRoutes.lua": "f165bf07005e5d8ab9f77a7c739200a7b7ae10e82313668dd69a15058861ef73",
@@ -59,7 +59,7 @@
     "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/ExcavationPresets.lua": "e215200b6980aa794959eddab53b58f56f4a3f60f71e4d59d2782e2b0c4b460f",
     "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/HandTools.lua": "703227dafb9ae104a0d902947ebdf4cb04c856260aa9eaa6cb7390d51d8924fd",
     "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/HeavyObjectIntegration.lua": "aae153deb19130ee5b0cd3274a0a2ad473e726af0af00a5a82a18878d19b5cbf",
-    "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/Integration.lua": "6a3b0bad4780499035cbd6201da67756cad2d10015cf4ccfaa7889823de2327a",
+    "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/Integration.lua": "d2f7343947dd48173a57851a346923986f8d5ef4a30b62ab6149756b3d2621a4",
     "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/ISGroundWorksBuildAction.lua": "fbb492eba07a222409e7cace47bd0c2f8bb7d2bed6fd20700a2bd3224a5fda96",
     "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/ISGroundWorksDigAction.lua": "81f1a4e2970aec9ab2c946e4e92694409a6dae4e725a0c88a5e243d44e0428e0",
     "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/ISGroundWorksSpoilAction.lua": "cdc162fcf03ccbe05979d1cfc23bfb86cfb85c1490c58162be6c1b8045c54a18",
@@ -67,7 +67,7 @@
     "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/Load.lua": "3a6a8750dc0ab95bea2800d7f0335ea525db4281a64fbe9760083bb7f479d249",
     "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/PrecipitationCleaning.lua": "9fab92c9ae56b1a634a01570249c5e42241a99bceeeed56dd23884a59c2dda03",
     "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/Projects.lua": "3d2677a0f4322246781439f30d321aeb86ce6a1fcbafb3a98027902ee762e1f0",
-    "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/RouteWork.lua": "db4b05152a1939ab87b90fd8c8f2761b9931876d5e34976383301a661eca3512",
+    "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/RouteWork.lua": "25cbd1e394b420b3d34488d6ced0c569d2d05da2c43f33d4d84c65bb036d4a2a",
     "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/SurfaceMutation.lua": "7ef177b3cec6d769ae55ee3dbdd27b260cdf1ccb8a9ea2160c7c0944a2e3884e",
     "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/SurfacePresentation.lua": "a67a54e46eac29c8300436fcf240381a7dab50624f3f6bc2c97781ad4bd5f32c",
     "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/TrenchTopology.lua": "81a1c877d2adcb80fa5e7e4773029c0eea4840dba6fcc38192bfa56a19df63d6",
@@ -81,5 +81,33 @@
     "src/B47ANCEDEarthworks/42/media/lua/shared/Translate/EN/ContextMenu.json": "246e15128c6bb692c7012583b3163c62fda06d60cf1d207aad854cf84b459d62",
     "src/B47ANCEDEarthworks/42/media/lua/shared/Translate/EN/IG_UI.json": "537f6fc086b308e590d936c03b71f4a7a433c7df075cdde4ab2ac31fc036cd39",
     "src/B47ANCEDEarthworks/42/media/lua/shared/Translate/EN/Sandbox.json": "ca3cf5d1f1741ab6e224db19f9e628ce53d13b6e1503bdd8112c3c8560b3ea8e"
+  },
+  "artwork": {
+    "approved_by": "User selected generated icon and original supplied thumbnail on 2026-10-18",
+    "icon": {
+      "path": "src/B47ANCEDEarthworks/42/icon.png",
+      "origin": "Built-in image editor; isolated wheelbarrow from user-supplied Earthworks thumbnail",
+      "sha256": "951494267279b6fc40eda0b2a207c8b7d150cbea412958198d81dd5bd1d84779",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha": "True transparent background; no lettering or scenery",
+      "prompt": "Extract only the dirt-filled olive wheelbarrow; retain pixel art and three-quarter view; remove text, shovel, trench, surrounding earth and ground shadow; transparent alpha."
+    },
+    "thumbnail": {
+      "paths": [
+        "src/B47ANCEDEarthworks/thumbnail.png",
+        "src/B47ANCEDEarthworks/42/thumbnail.png",
+        "preview.png"
+      ],
+      "origin": "Original user-supplied project thumbnail; exact bytes, no edits",
+      "sha256": "f256ae54a3167a310ae8ce288cd0da13b0177117c03a91a93cf3977cc602d2d4",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    },
+    "native_display": "NOT TESTED"
   }
 }

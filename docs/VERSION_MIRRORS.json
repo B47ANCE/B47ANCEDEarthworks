@@ -62,5 +62,21 @@
   {
     "path": "docs/SOURCE_PROVENANCE_CURRENT.json",
     "pattern": "\"version\": \"([^\"]+)\""
+  },
+  {
+    "path": "docs/DEDICATED_TESTING.md",
+    "pattern": "^Version: (.+)$"
+  },
+  {
+    "path": "docs/MP_TEST_DEPENDENCIES.json",
+    "pattern": "\"earthworks_version\"\\s*:\\s*\"([^\"]+)\""
+  },
+  {
+    "path": "docs/MOD_OVERVIEW.json",
+    "pattern": "\"version\"\\s*:\\s*\"([^\"]+)\""
+  },
+  {
+    "path": "docs/SOURCE_INVENTORY.json",
+    "pattern": "\"version\"\\s*:\\s*\"([^\"]+)\""
   }
 ]

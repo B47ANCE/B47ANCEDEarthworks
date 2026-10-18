@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "target": "dedicated-multiplayer",
+  "runtime_status": "NOT_TESTED",
+  "earthworks_version": null,
+  "source_commit": null,
+  "source_digest": null,
+  "archive_sha256": null,
+  "dependency_lock_sha256": null,
+  "dependencies": {},
+  "server": {
+    "game_version": null,
+    "game_build": null
+  },
+  "clients": {
+    "A": {
+      "game_version": null,
+      "game_build": null
+    },
+    "B": {
+      "game_version": null,
+      "game_build": null
+    }
+  },
+  "fixture": null,
+  "sandbox_settings": {},
+  "enabled_mod_ids": [],
+  "scenarios": [
+    {
+      "id": "D01",
+      "status": "NOT_TESTED",
+      "evidence": []
+    },
+    {
+      "id": "D02",
+      "status": "NOT_TESTED",
+      "evidence": []
+    },
+    {
+      "id": "D03",
+      "status": "NOT_TESTED",
+      "evidence": []
+    },
+    {
+      "id": "D04",
+      "status": "NOT_TESTED",
+      "evidence": []
+    },
+    {
+      "id": "D05",
+      "status": "NOT_TESTED",
+      "evidence": []
+    },
+    {
+      "id": "D06",
+      "status": "NOT_TESTED",
+      "evidence": []
+    },
+    {
+      "id": "D07",
+      "status": "NOT_TESTED",
+      "evidence": []
+    },
+    {
+      "id": "D08",
+      "status": "NOT_TESTED",
+      "evidence": []
+    },
+    {
+      "id": "D09",
+      "status": "NOT_TESTED",
+      "evidence": []
+    },
+    {
+      "id": "D10",
+      "status": "NOT_TESTED",
+      "evidence": []
+    },
+    {
+      "id": "D11",
+      "status": "NOT_TESTED",
+      "evidence": []
+    },
+    {
+      "id": "D12",
+      "status": "NOT_TESTED",
+      "evidence": []
+    },
+    {
+      "id": "D13",
+      "status": "NOT_TESTED",
+      "evidence": []
+    },
+    {
+      "id": "D14",
+      "status": "NOT_TESTED",
+      "evidence": []
+    },
+    {
+      "id": "D15",
+      "status": "NOT_TESTED",
+      "evidence": []
+    }
+  ],
+  "g7": "BLOCKED / NOT_TESTED",
+  "g8": "BLOCKED",
+  "notes": "Blank standalone template. Actual native evidence only; keep raw logs/player data private."
+}

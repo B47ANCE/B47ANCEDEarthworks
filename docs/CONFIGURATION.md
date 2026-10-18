@@ -1,6 +1,6 @@
 # Sandbox configuration
 
-Version: 0.17.0
+Version: 0.19.1
 
 The server's sandbox configuration is authoritative for shared gameplay. Option identifiers/defaults are preserved across the rename; names/tooltips live in the source English Sandbox.json. Only English fallback is supplied; folder counts do not prove localization or native loading.
 
@@ -17,6 +17,6 @@ The server's sandbox configuration is authoritative for shared gameplay. Option 
 | `groundWorks.CollapseKills` | boolean | true | Fatal collapse; false uses existing evacuation handling |
 | `groundWorks.CollapseChancePerHour` | double 0..1 | 0.01 | Chance per hour per depth; zero disables random collapse |
 
-Existing saves retain these identifiers and source defaults. The retired enhanced-visibility option is not registered or consumed; an old stored value has no effect. Rendering is fixed to vanilla, so no replacement cosmetic toggle is exposed. CAT owns its separate RequireOperatorManuals option; it applies only when both frameworks are enabled and never bypasses Knowledge & Wisdom's MP guard.
+Existing saves retain these identifiers and source defaults. The retired enhanced-visibility option is not registered or consumed; an old stored value has no effect. Rendering is fixed to vanilla, so no replacement cosmetic toggle is exposed. Retired vehicle/training settings are not owned or read by standalone Earthworks. No new configuration is added for removed integrations.
 
 Technical caps/queue limits and protocol IDs are implementation safety bounds, not new gameplay options. Actual engine sandbox serialization, old-save loading and dedicated behavior remain NOT TESTED for this version.
