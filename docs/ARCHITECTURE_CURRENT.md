@@ -1,6 +1,6 @@
 # Current architecture and invariants
 
-Version: 0.19.0
+Version: 0.19.1
 
 Lua-only authoritative runtime: src/B47ANCEDEarthworks/42. Mod ID B47ANCEDEarthworks; retained groundWorks Lua/save/sandbox namespace and schemas. Vanilla owns rendering. No custom Java/JAR dependency, external required mod or bundled vehicle adapter.
 

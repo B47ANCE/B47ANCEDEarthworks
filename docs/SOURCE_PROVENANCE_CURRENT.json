@@ -1,14 +1,14 @@
 {
-  "version": "0.19.0",
+  "version": "0.19.1",
   "mod_id": "B47ANCEDEarthworks",
   "workshop_id": "3788591561",
   "normalization": "canonical LF for text; exact PNG bytes",
   "files_sha256": {
-    "src/B47ANCEDEarthworks/info.txt": "96eec6696ce4ffbcc9ba49623e2e18bc0444a7fe1c2762995ff349841de7ac8d",
-    "src/B47ANCEDEarthworks/thumbnail.png": "f2e53bb00fd1c692ce6c82b612670f42b844c0a95cb9ff7cae01585e7dc74eaa",
-    "src/B47ANCEDEarthworks/42/icon.png": "4562f6681beb0005353aaecc6a9d85edc461bdb2fe523ad3fca05d0452f9a8c2",
-    "src/B47ANCEDEarthworks/42/mod.info": "3880173110334be15d004110e1d43e631c982ec6ab07e6272ef2e745d375210b",
-    "src/B47ANCEDEarthworks/42/thumbnail.png": "f2e53bb00fd1c692ce6c82b612670f42b844c0a95cb9ff7cae01585e7dc74eaa",
+    "src/B47ANCEDEarthworks/info.txt": "07667015e566430b08727abca500ed7cd4d6022fedd0ad9a0d8f273e5c7c70bd",
+    "src/B47ANCEDEarthworks/thumbnail.png": "f256ae54a3167a310ae8ce288cd0da13b0177117c03a91a93cf3977cc602d2d4",
+    "src/B47ANCEDEarthworks/42/icon.png": "951494267279b6fc40eda0b2a207c8b7d150cbea412958198d81dd5bd1d84779",
+    "src/B47ANCEDEarthworks/42/mod.info": "032b159fcb475d51bdc0a294f47d527055a3d5778b5f9482d1f518515d348391",
+    "src/B47ANCEDEarthworks/42/thumbnail.png": "f256ae54a3167a310ae8ce288cd0da13b0177117c03a91a93cf3977cc602d2d4",
     "src/B47ANCEDEarthworks/42/media/sandbox-options.txt": "952fdaec5510285c0ec6c31d515d028b0177b38d7da801902fb41f40cc79d913",
     "src/B47ANCEDEarthworks/42/media/lua/client/groundWorks/ClientLoad.lua": "6ebd234e81a855b7a9b40ba8ce297c1db6158576d32a91eaa96f1189d5b0a327",
     "src/B47ANCEDEarthworks/42/media/lua/client/groundWorks/EarthworkDiagnosticsClient.lua": "71842a356729640cd3374dafd44263f94a9eb337ac108ea0ef72d869c6447953",
@@ -44,7 +44,7 @@
     "src/B47ANCEDEarthworks/42/media/lua/server/groundWorks/WheelbarrowServer.lua": "5f2a00881faf5ee5ca80aad596f66ef5eafc584a93f5b419dc7491931c4cd607",
     "src/B47ANCEDEarthworks/42/media/lua/server/groundWorks/WheelbarrowTransactions.lua": "088a773f4eab377be10ac1778901b441bf1cd466e04d19643f41416a471483bf",
     "src/B47ANCEDEarthworks/42/media/lua/server/groundWorks/WornSurface.lua": "167fa002909047baf89b5ca8b05e559ad1024bf4bdb7848a519d1ac9e34e5c9b",
-    "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/API.lua": "c150554335cb988dbd626e2da0f415c67e7823e4bb6399b97b1cf58c97a64d91",
+    "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/API.lua": "8c1d905e947ebbc5830b855f967c60c3bc9e9235eebb3fad071ae4f187b1b0c4",
     "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/Cavity.lua": "ed790788449b8955cf99fcbc6b2962db8be9108422c6b6db192a6aa7f8326d10",
     "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/CavityTerrain.lua": "bf32c156073ba1a98d7da7020b59acb364b8332d5ce31bf81f4c2595b50e5bb6",
     "src/B47ANCEDEarthworks/42/media/lua/shared/groundWorks/ConstructedRoutes.lua": "f165bf07005e5d8ab9f77a7c739200a7b7ae10e82313668dd69a15058861ef73",
@@ -81,5 +81,33 @@
     "src/B47ANCEDEarthworks/42/media/lua/shared/Translate/EN/ContextMenu.json": "246e15128c6bb692c7012583b3163c62fda06d60cf1d207aad854cf84b459d62",
     "src/B47ANCEDEarthworks/42/media/lua/shared/Translate/EN/IG_UI.json": "537f6fc086b308e590d936c03b71f4a7a433c7df075cdde4ab2ac31fc036cd39",
     "src/B47ANCEDEarthworks/42/media/lua/shared/Translate/EN/Sandbox.json": "ca3cf5d1f1741ab6e224db19f9e628ce53d13b6e1503bdd8112c3c8560b3ea8e"
+  },
+  "artwork": {
+    "approved_by": "User selected generated icon and original supplied thumbnail on 2026-10-18",
+    "icon": {
+      "path": "src/B47ANCEDEarthworks/42/icon.png",
+      "origin": "Built-in image editor; isolated wheelbarrow from user-supplied Earthworks thumbnail",
+      "sha256": "951494267279b6fc40eda0b2a207c8b7d150cbea412958198d81dd5bd1d84779",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha": "True transparent background; no lettering or scenery",
+      "prompt": "Extract only the dirt-filled olive wheelbarrow; retain pixel art and three-quarter view; remove text, shovel, trench, surrounding earth and ground shadow; transparent alpha."
+    },
+    "thumbnail": {
+      "paths": [
+        "src/B47ANCEDEarthworks/thumbnail.png",
+        "src/B47ANCEDEarthworks/42/thumbnail.png",
+        "preview.png"
+      ],
+      "origin": "Original user-supplied project thumbnail; exact bytes, no edits",
+      "sha256": "f256ae54a3167a310ae8ce288cd0da13b0177117c03a91a93cf3977cc602d2d4",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    },
+    "native_display": "NOT TESTED"
   }
 }

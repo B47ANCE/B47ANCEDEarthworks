@@ -1,6 +1,6 @@
 # B47ANCE'd Earthworks
 
-Version: `0.19.0` - development MP test source, not a stable release.
+Version: `0.19.1` - development MP test source, not a stable release.
 
 Standalone Lua-only excavation, construction and surface wear for Project Zomboid Build 42. Dig/frame/deepen/climb/backfill trenches, moats and basements, move spoil and build gravel paths. Rendering is vanilla; fluid simulation, custom cutaways and retained underground surface views are unavailable. Experimental wheelbarrow pushing remains SP-only and unavailable in dedicated MP.
 
@@ -32,3 +32,5 @@ Python with `pip install -r requirements-dev.txt` supplies Lupa 2.6 / Lua 5.1. T
 The [dedicated test kit](docs/DEDICATED_TESTING.md) contains a deterministic Earthworks-only ZIP, no-dependency lock, commit/source/archive manifest, checklist and blank results template. Build outputs stay in ignored dist; different existing output is preserved. Successful preflight exits 0 with READY_FOR_NATIVE_TEST, while native G7/G8 remain blocked. The tool does not install mods, edit server configuration, launch processes or upload anything.
 
 [Public repository](https://github.com/B47ANCE/B47ANCEDEarthworks), [version policy](docs/VERSION_POLICY.md), [source inventory](docs/SOURCE_INVENTORY.json), [architecture](docs/ARCHITECTURE_CURRENT.md), [sandbox configuration](docs/CONFIGURATION.md), [compatibility](docs/COMPATIBILITY.md), [reviewed overview](docs/MOD_OVERVIEW.json). Historical packages/reports, retired Java evidence and previous dependency locks retain their original versions/hashes outside current inputs. Optional weather/heavy-object consumers retain their existing declared contracts and are not part of the minimal baseline.
+
+Artwork: the approved transparent wheelbarrow is `src/B47ANCEDEarthworks/42/icon.png`. The original title artwork is used unchanged for both thumbnail.png slots and Workshop `preview.png` (all 1254 x 1254). These source assets do not update an installed mod or Workshop item until a separately authorized deployment/upload. Native menu display is NOT TESTED.

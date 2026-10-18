@@ -1,5 +1,11 @@
 # B47ANCE'd Earthworks changelog
 
+## [0.19.1] - Approved Earthworks artwork
+
+- Use the approved transparent dirt-filled wheelbarrow as the mod icon. Use the user's original Earthworks title artwork as the runtime poster, authoring thumbnail and Workshop preview.
+- Preserve exact supplied PNG bytes (1254 x 1254); the icon retains true alpha and contains no text or background fill. Existing metadata already selects icon.png and thumbnail.png.
+- Update version mirrors and source/artwork provenance. Gameplay, authority, saved data and dependencies are unchanged. Offline checks only; native icon display NOT TESTED, G7 and stable G8 remain BLOCKED. No package, deployment or upload.
+
 ## [0.19.0] - Standalone dedicated test build
 
 - Removed CAT and its CAT-only Knowledge & Wisdom hard dependency. Earthworks now loads standalone.

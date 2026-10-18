@@ -2,8 +2,8 @@
   "schema": 1,
   "id": "earth",
   "name": "B47ANCE'd Earthworks",
-  "version": "0.19.0",
-  "source_digest": "ce9050371470fa8e133a0c23152f2eee0f0238fb80fa099be72c8602b19ad0b0",
+  "version": "0.19.1",
+  "source_digest": "5bdef79d6c26810ec757ad5ba5e038d9879800fbec495cc884470da503d1b656",
   "reviewed": true,
   "features": [
     {

@@ -1,6 +1,6 @@
 # Standalone dedicated test checklist
 
-Version: 0.19.0
+Version: 0.19.1
 
 Dedicated server plus two clients is the first native target. SP acceptance is optional, never a prerequisite. The baseline enables only Mod ID B47ANCEDEarthworks; no CAT, Knowledge & Wisdom or other required mod. Use an explicitly authorized disposable dedicated installation/save and preserve backups. Build commands do not install, launch, change a server or upload to Workshop.
 

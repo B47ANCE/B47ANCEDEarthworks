@@ -1,5 +1,5 @@
-[b]Version 0.19.0[/b]
+[b]Version 0.19.1[/b]
 
-Removed CAT integrations and the CAT-only Knowledge & Wisdom dependency. Earthworks now loads standalone. Vehicle providers, machine cargo/manual hooks and validator fallback are retired; saved terrain, schemas and markers remain unchanged. Hand-tool excavation and gravel routes remain available.
+Updated the mod icon to the approved transparent wheelbarrow and the thumbnail/preview to the original Earthworks title artwork. Gameplay and saved data are unchanged.
 
-Added standalone load/no-adapter checks and simplified the reproducible dedicated kit to require no external mod paths. MP testing build - dedicated multiplayer NOT TESTED. G7 and stable G8 BLOCKED; no install, launch or Workshop upload.
+MP testing build - dedicated multiplayer NOT TESTED. G7 and stable G8 BLOCKED. Source artwork update only; no package, install, launch or Workshop upload.

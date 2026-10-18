@@ -1,5 +1,5 @@
 [h1]B47ANCE'd Earthworks[/h1]
-[b]Mod Version: 0.19.0[/b] - development MP test build
+[b]Mod Version: 0.19.1[/b] - development MP test build
 Standalone Lua-only excavation and construction with vanilla tools. No required external mods or bundled vehicle adapters.
 Dig, frame, deepen, climb and backfill trenches, moats and basements. Move spoil in native sacks/containers and build gravel paths. Server validates shared gameplay.
 Uses vanilla rendering; fluid simulation, custom cutaways and retained underground surface views are unavailable. Experimental wheelbarrow pushing remains SP-only and unavailable in dedicated MP.

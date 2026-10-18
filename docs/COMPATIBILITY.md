@@ -1,6 +1,6 @@
 # Current compatibility contract
 
-Version: 0.19.0
+Version: 0.19.1
 
 Earthworks Mod ID is B47ANCEDEarthworks, with no required external Mod IDs. The retained import/global/save/sandbox namespace is groundWorks. CAT integration and its CAT-only Knowledge & Wisdom dependency are removed at the user's request. No external source/assets are bundled or redistributed; CAT repository onboarding is canceled.
 

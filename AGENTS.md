@@ -1,6 +1,6 @@
 # Earthworks project instructions
 
-Current version: 0.19.0. Canonical version is root VERSION.
+Current version: 0.19.1. Canonical version is root VERSION.
 
 Read the user's current global AGENTS.md through USERPROFILE/.codex/AGENTS.md when available. Team skills live in USERPROFILE/.agents/skills; preserve unrelated settings.
 
